@@ -17632,6 +17632,12 @@ $(document).ready(function () {
 					{
 						breakpoint: 1024,
 						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 750,
+						settings: {
 							slidesToShow: 2
 						}
 					}
@@ -17651,6 +17657,29 @@ $(document).ready(function () {
 						settings: {
 							arrows: false,
 							dots: true
+						}
+					}
+				]
+			});
+			$('.single').slick({
+				arrows: true,
+				slidesToShow: 5,
+				slidesToScroll: 1,
+				speed: 500,
+				infinite: false,
+				prevArrow: '<button type="button" class="slick-prev"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 27"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8,0L15,1.1L2.7,13.6L15,25.7L13.7,27L0,13.7L13.8,0z"/></svg></span></button>',
+				nextArrow: '<button type="button" class="slick-next"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 27"><path fill-rule="evenodd" clip-rule="evenodd" d="M15,13.7L1.3,27L0,25.7l12.3-12.1L0,1.1L1.2,0L15,13.7z"/></svg></span></button>',
+				responsive: [
+					{
+						breakpoint: 1281,
+						settings: {
+							slidesToShow: 4
+						}
+					},
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 3
 						}
 					}
 				]
@@ -17871,6 +17900,13 @@ $(document).ready(function () {
 							duration: duration
 						});
 		});
+	})();
+
+	//Sticky elements
+	(function(){
+		if($('.js-stock').length){
+			//$('.js-stock').stick_in_parent({offset_top: 20});
+		}
 	})();
 
 })
