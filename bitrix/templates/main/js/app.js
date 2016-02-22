@@ -363,4 +363,398 @@ $(document).ready(function () {
 		}
 	})();
 
+	//reset forms
+	(function() {		 
+		$('.reset_form').each(function(){
+			var this_ = $(this),
+					input = this_.find('.input'),
+					reset = this_.find('.reset');
+
+			input.on('input', function(){
+				var value = $(this).val();
+				if(value.length > 0) {
+					reset.delay(100).fadeIn(150);
+					input.addClass('active');
+				} else {
+					reset.fadeOut(100);
+					input.removeClass('active');
+				}
+			});			
+			reset.on('click', function(){
+				input.val('');
+				$(this).fadeOut(100);
+				input.removeClass('active');
+			});
+		});
+	})();
+
+	//filter popover 
+	(function(){
+		var filter_btn = $('.filter__control-item'),
+				checkbox = $('.filter__emulate'),
+				list = $('.filter__list'),
+				close = $('.filter-popover__close'),
+				f_popup = $('.filter-popover'),
+				checkbox = $('.filter__btns');
+		
+		filter_btn.on('click', function(event){
+			var this_ = $(this),
+					parent = this_.parents('.filter__facet'),
+					popover = parent.find('.filter-popover');
+
+				popover.toggleClass('visible');
+
+				event.stopPropagation();
+		});
+
+		f_popup.on('click', function(event){
+			event.stopPropagation();
+		});
+
+		$(document).on('click', function(){
+			$('.filter-popover').removeClass('visible');
+		});
+
+		close.on('click', function(){
+			$('.filter-popover').removeClass('visible');
+		});
+
+		list.each(function(){
+			var this_ = $(this),
+					item = this_.find('.filter__checkbox-item'),
+					btn_r =  this_.parents('.filter__fieldset').find('.btn_reset');
+
+					initCheck(this_);
+
+					item.on('click', function(event){
+						var $this = $(this),
+								parent = this_.parents('.filter__facet'),
+								val = this_.data('id');
+
+						$this.toggleClass('active');
+
+						initCheck(parent);
+						event.stopPropagation();
+					});
+					btn_r.on('click', function(){
+						$(this).parents('.filter__item').removeClass('active');
+						$(this).parents('.filter__item').find('.filter__checkbox-item').removeClass('active');
+						$(this).parents('.filter__item').find('input:checked').prop('checked', false);
+					});
+		});
+		function initCheck(list){
+			if(list.find(".active").length > 0 || list.find("input:checked").length > 0) {
+					list.parents('.filter__item').addClass('active');
+				} else {
+					list.parents('.filter__item').removeClass('active');
+				}
+		}
+
+		checkbox.each(function(){
+			var this_ = $(this),
+					check = this_.find('input'),
+					parent = this_.parents('.filter__item'),
+					reset = parent.find('.btn_reset');
+			if(check.prop('checked', true)){
+				parent.addClass('active');
+			}
+			check.on('click', function(){
+				if($(this).prop('checked', true)){
+					parent.addClass('active');
+				}
+			});
+			reset.on('click', function(){
+				check.prop('checked', false);
+				parent.removeClass('active');
+				console.log(true)
+			});
+		})
+	})();
+
+	//price slider
+	(function(){
+			var ui_slider = $(".ui-slider");
+			if(ui_slider.length){
+				ui_slider.each(function(){
+					var slider = $(this).find(".js-ui-slider-main"),
+							inputFrom = $(this).find(".js-ui-slider-from"),
+							inputFromHidden = $(this).find(".js-input-from-hidden"),
+							inputTo = $(this).find(".js-ui-slider-to"),
+							inputToHidden = $(this).find(".js-input-to-hidden"),
+							maxVal = slider.attr("data-max"),
+							minVal = slider.attr("data-min"),
+							valFrom = inputFromHidden.val(),
+							valTo = inputToHidden.val(),
+							stepVal = slider.attr("data-step"),
+							reset = $(this).parents('.filter__item').find('.btn_reset'),
+							parent = slider.parents('.filter__item');
+
+						if (valFrom!=minVal) {
+							inputFrom.val(valFrom);
+						}
+						if (valTo!=maxVal) {
+							inputTo.val(valTo);							
+						}
+
+						if(valTo != '' || valFrom != '') {
+							parent.addClass('active');
+						}
+
+						if (!valFrom) {
+							var valFrom = minVal;
+						};
+						if (!valTo) {
+							var valTo = maxVal;
+						};
+
+						slider.slider({
+							range: true,
+							min: minVal,
+							max: maxVal,
+							//step: stepVal,
+							values: [ valFrom, valTo ],
+							stop: function( event, ui ) {
+								inputFrom.val(ui.values[0]);
+								inputFromHidden.val(ui.values[0]);
+								inputTo.val(ui.values[1]);
+								inputToHidden.val(ui.values[1]);
+							},
+							slide: function( event, ui ) {
+								inputFrom.val(ui.values[0]);
+								inputFromHidden.val(ui.values[0]);
+								inputTo.val(ui.values[1]);
+								inputToHidden.val(ui.values[1]);
+								if (inputFrom.val() === minVal || inputTo.val() === maxVal) {
+									parent.addClass('active');
+								}
+							}
+						});
+
+
+						inputFrom.on('change', function(){
+							var val1 = $(this).val(),
+									val2 = inputFromHidden.val(val1),
+									valmin = inputFromHidden.val(),
+									valmax = inputToHidden.val();
+							if(val1 < valmin) {
+								val1 = valmin
+								$(this).val(valmin);
+								$('.js-input-from-hidden').val(valmin);
+							}
+							if (parseInt(val1) > parseInt(valmax)) {
+								val1 = valmax;
+								inputFromHidden.val(val1);
+								$(this).val(val1);
+							}
+
+							slider.slider('values',0 , val1);
+
+							if (inputFrom.val() != '' ) {
+								parent.addClass('active');
+							}	else {
+								parent.removeClass('active');
+							}
+						});
+
+						inputTo.on('change', function(){
+							var val1 = $(this).val(),
+									val2 = inputToHidden.val(val1),
+									valmin = inputFromHidden.val(),
+									valmax = slider.attr('data-max');
+							if(parseInt(val1) > parseInt(valmax)) {
+								val1 = valmax;
+								$(this).val(valmax);
+
+								$('.js-input-to-hidden').val(valmax);
+							};
+							if(parseInt(val1) < parseInt(valmin) ) {
+								val1 = valmin;
+								inputToHidden.val(val1);
+								$(this).val(valmin);
+							};
+							if (inputTo.val() != '' ) {
+								parent.addClass('active');
+							}	else {
+								parent.removeClass('active');
+							};
+							slider.slider('values',1 , val1);
+						});
+
+						// function formatValue(input) {
+						// 	var t = input.replace(/\D/g, '');
+						// 	input = t.split("").reverse().join("").replace(/(\d{3})(?=\d)/g, "$1 ").split("").reverse().join("");
+						// }
+				
+					reset.on("click",function(){
+						var slider = parent.find(".js-ui-slider-main"),
+								maxVal = slider.attr("data-max"),
+								minVal = slider.attr("data-min");
+						slider.slider( "values", [ minVal, maxVal ] );
+						parent.find(".js-input-from-hidden").val(minVal);
+						parent.find(".js-input-to-hidden").val(maxVal);
+						parent.find(".js-ui-slider-from").val('');
+						parent.find(".js-ui-slider-to").val('');
+						parent.removeClass('active');
+						return false;
+					});
+				});
+			};
+	})();
+
+	//multiplu select
+	(function(){
+		var single_row = $('.single_row');
+
+		if(single_row.length){
+			single_row.multipleSelect({
+				single: true,
+				width: '100%',
+				onClose: function(){
+					$('.ms-choice').removeClass('is-active');
+					if($('.ms-parent').hasClass('select_valid')){
+						detectedCheck($('.ms-parent'));
+					}					
+				},
+				onClick: function(view){
+
+				}
+			});
+		}
+		function detectedCheck(item){
+			if(item.find('input:checked').length ) {
+				item.addClass('valid').removeClass('error');
+			} else {
+				item.addClass('error');
+			}
+		}
+		function activeSel() {
+			var parent = $('.single_row'),
+				item = parent.find('> button'),
+				li = parent.find('.ms-drop li');
+			item.on('click', function () {
+				var this_ = $(this),
+					div = this_.find('> div');
+				if (div.hasClass('open')) {
+					$('.ms-choice').removeClass('is-active');
+					div.parents('.ms-choice').addClass('is-active');
+				}
+				else {
+					div.parents('.ms-choice').removeClass('is-active');
+				}
+			});
+			li.on('click', function() {
+				var parent = $(this).parents('.single_row');
+				parent.find('.ms-choice').removeClass('is-active');
+			});
+
+		}
+		activeSel();
+	})();
+
+	//spinner
+	(function() {
+		var number = $('.spinner');
+		number.each(function(){
+			var max_number = +($(this).attr('data-max-number'));
+			var input = $(this).find('input');
+			var plus = $(this).find('.spinner__plus');
+			var minus = $(this).find('.spinner__minus');
+			plus.on('click', function(){
+				var val = +(input.val());
+				if (val >= max_number) {
+					return false;
+				}
+				else {
+					val += 1;
+					input.val(val);
+				}
+				input.trigger('change');
+			});
+			minus.on('click', function(){
+				var val = +(input.val());
+				if (val > 1) {
+					val -= 1;
+					input.val(val);
+				}
+				else {
+					input.val('1');
+					return false;
+				}
+				input.trigger('change');
+			});
+		});
+	})();
+	//spinner count
+	$('.js-price').each(function() {
+		$('.spinner__input').on('change', function() {
+			$(this).parents('.js-price').find('.result').text($(this).val()*$(this).parents('.js-price').find('.result').data('price'));
+			$('.js-price-text').map(function() {
+				$(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
+			})
+		});
+	});
+
+	//prices
+	function prices() {
+		$(window).ready(function() {
+			$('.js-price').each(function() {
+				var val = $('.spinner__input').val();
+				$(this).find('.result').text(val*$(this).find('.result').data('price'));
+			});
+
+			$('.js-price-text').map(function() {
+				$(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
+			});
+		});
+	};
+	prices();
+
+	//fake loader
+	function Loaders(){
+		if(!$('.card__list').hasClass('init')){
+			$('.show_box').show();
+			$('.card__list .card_item').slice(10).hide();
+				$('.show-more').on('click',function() {				
+					$('.card__list .card_item:not(:visible)').slice(0, 10).fadeIn(function(){
+						if($('.card__list .card_item:not(:visible)').length === 0) {
+							$('.show_box').hide();
+						}
+					});					
+				return false;
+			});
+			$('.card__list').addClass('init');
+		}
+	};
+
+	function DeLoaders(){
+		// if(!$('.card__list').hasClass('init')){
+		// 	return ;
+		// }
+			$('.card__list .card_item').show({
+				complete: function(){
+					$(this).removeAttr('style');
+				}
+			});
+			$('.show_box').hide();
+	}
+
+	$(window).on('resize', function(){
+		if($(window).innerWidth() && $(window).innerWidth() < 1023) {
+			if($('.card__list .card_item:not(:visible)').length || $('.card__list .card_item:visible').length) {
+				return
+			}
+			$('.show_box').show();
+			$('.card__list .card_item').slice(10).hide();
+			Loaders();
+		} else {
+			DeLoaders();
+		}
+	});
+	$(window).on('load', function(){
+		if($(window).innerWidth() && $(window).innerWidth() < 1023) {
+			Loaders()
+		} else {
+			DeLoaders();
+		}
+	});
 })
