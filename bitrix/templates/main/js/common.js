@@ -17550,15 +17550,43 @@ $(document).ready(function () {
 	  return this.attr(name) !== undefined;
 	};
 	//basket
+	function inits(){
+		return {
+			arrows: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			vertical: true,
+			verticalSwiping: true,
+			infinite: false,
+			prevArrow: '<button type="button" class="slick-prev"><span><svg viewBox="0 0 512 275" xmlns="http://www.w3.org/2000/svg"><g><path id="svg_2" fill="#6A6E7C" d="m256,0.00156c-2.8,0 -5.5,1.1 -7.60001,3.2l-245.39999,254.10001c-4,4.20001 -3.9,10.89999 0.3,14.89999c4.2,4 10.9,3.89999 14.9,-0.29999l245.50001,-254.00002c4,-4.2 3.89999,-10.89999 -0.30002,-14.89999c-2.10001,-2.00001 -4.79999,-3.00001 -7.39999,-3.00001z"/><path id="svg_3" fill="#6A6E7C" d="m256,0.00156c-2.60001,0 -5.3,1 -7.3,3c-4.2,4 -4.3,10.7 -0.3,14.9l245.5,253.99998c4,4.20001 10.70001,4.30002 14.89999,0.30002c4.20001,-4 4.29999,-10.70001 0.30002,-14.89999l-245.5,-254.00002c-2.10001,-2.2 -4.80002,-3.3 -7.60001,-3.3z"/></g></svg></span></button>',
+			nextArrow: '<button type="button" class="slick-next"><span><svg viewBox="0 0 512 275" xmlns="http://www.w3.org/2000/svg"><g><path id="svg_2" fill="#6A6E7C" d="m256,275.60001c-2.8,0 -5.5,-1.10001 -7.60001,-3.19998l-245.39999,-254.10002c-4,-4.2 -3.9,-10.9 0.3,-14.9c4.2,-4 10.9,-3.9 14.9,0.3l245.50001,254.00002c4,4.19998 3.89999,10.89999 -0.30002,14.89999c-2.10001,2 -4.79999,3 -7.39999,3z"/><path id="svg_3" fill="#6A6E7C" d="m256,275.60001c-2.60001,0 -5.3,-1 -7.3,-3c-4.2,-4 -4.3,-10.69998 -0.3,-14.89999l245.5,-254c4,-4.2 10.70001,-4.3 14.89999,-0.3c4.20001,4 4.29999,10.7 0.30002,14.89999l-245.5,254.00002c-2.10001,2.19998 -4.80002,3.29999 -7.60001,3.29999z"/></g></svg></span></button>'
+		};
+	};
+
 	(function(){
 		var basket = $('.basket'),
-				inner = basket.find('.basket__container');
+				inner = basket.find('.basket__container'),
+				slider = inner.find('.basket_slider');
 
 		basket.on('mouseenter', function(){
+			if($(this).hasClass('init')){return}
 			inner.fadeIn(150);
+			if(slider.find('.item__basket').length > 3) {
+				slider.slick(inits());
+			}
+			$(this).addClass('init');
 		});
 		basket.on('mouseleave', function(){
-			inner.fadeOut(150);
+			inner.fadeOut({
+				duration: 150,
+				complete: function(){
+					if(slider.hasClass('slick-slider')) {
+						slider.slick('unslick');
+					}
+					basket.removeClass('init');
+				}	
+			});
+			
 		});
 	})();
 	//reset form
@@ -17656,13 +17684,6 @@ $(document).ready(function () {
 						}
 					}
 				]
-			});
-			$('.basket_slider').slick({
-				arrows: true,
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				vertical: true,
-				verticalSwiping: true
 			});
 			$('.slider_img').slick({
 				arrows: true,
