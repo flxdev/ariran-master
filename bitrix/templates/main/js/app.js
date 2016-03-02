@@ -256,7 +256,19 @@ $(document).ready(function () {
 				nextArrow: '<button type="button" class="slick-next"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 27"><path fill-rule="evenodd" clip-rule="evenodd" d="M15,13.7L1.3,27L0,25.7l12.3-12.1L0,1.1L1.2,0L15,13.7z"/></svg></span></button>',
 				responsive: [
 					{
-						breakpoint: 1281,
+						breakpoint: 1280,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 5
+						}
+					},
+					{
+						breakpoint: 767,
 						settings: {
 							slidesToShow: 3
 						}
