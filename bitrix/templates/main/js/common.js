@@ -17684,6 +17684,7 @@ $(document).ready(function () {
 				var index = $(this).index();
 
 				e.preventDefault();
+				clearTimeout(timeout);
 
 				if (e.type == 'touchend' && index === _.activeTab && _.opened) {
 					_.close();
