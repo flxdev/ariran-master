@@ -67,45 +67,6 @@ $(document).ready(function () {
 			});
 		});
 	})();
-
-	//menu 
-	// (function(){
-	// 	var $menu = $('.header .nav').find('.first-level'),
-	// 			$items = $menu.find('.point'),
-	// 			$delay = 0;
-
-	// 	$items.each(function(){
-	// 		var $this = $(this),
-	// 				$link = $this.find('> a');
-
-	// 		if($this.find('.category__half').length){
-	// 			menuinit($this);
-	// 		}
-	// 		var timer;
-	// 		function menuinit(item) {
-	// 			$menu.on('mouseenter', function(){
-	// 				timer = setTimeout(function(){
-	// 					$menu.addClass('active');
-	// 				}, 200);					
-	// 			}).bind('mouseleave', function(){
-	// 				clearTimeout(timer)
-	// 				$menu.removeClass('active');
-	// 			});
-	// 			item.bind('mouseenter', function(){
-	// 				item.addClass('visible');					
-	// 				if($menu.hasClass('active')) {
-	// 					item.find('.category__half').stop(true,true).show();
-	// 				}else {
-	// 					item.find('.category__half').stop(true,true).fadeIn();
-	// 				}
-	// 			}).bind('mouseleave', function(){
-	// 				item.removeClass('visible');
-	// 				item.find('.category__half').stop(true,true).hide();
-	// 			});
-	// 		};			
-	// 	})
-	// })();
-
 	
 	//NEW MENU
 	function Menu(element) {
@@ -614,10 +575,11 @@ $(document).ready(function () {
 	//filter popover 
 	(function(){
 		var filter_btn = $('.filter__control-item'),
-				checkbox = $('.filter__emulate'),
+				checkboxs = $('.filter__emulate'),
 				list = $('.filter__list'),
 				close = $('.filter-popover__close'),
 				f_popup = $('.filter-popover'),
+				checkboxsPopup = f_popup.find('.filter__list'),
 				checkbox = $('.filter__btns');
 		
 		filter_btn.on('click', function(event){
@@ -642,10 +604,44 @@ $(document).ready(function () {
 			$('.filter-popover').removeClass('visible');
 		});
 
-		list.each(function(){
+		checkboxs.each(function(){
 			var this_ = $(this),
 					item = this_.find('.filter__checkbox-item'),
 					btn_r =  this_.parents('.filter__fieldset').find('.btn_reset');
+
+					initCheck(this_);
+
+					if(item.hasAttr('data-id')){
+						item.on('click', function(event){
+							var $this = $(this),
+									parent = this_.parents('.filter__facet'),
+									val = $this.data('id');
+					
+							if($this.hasClass('active')){
+									$this.removeClass('active')
+									$this.parents('.filter__facet').find('.filter-popover').find('[data-id='+val+']').find('input').prop('checked', false);
+									console.log(true)
+								
+								
+							} else {
+								$this.addClass('active')
+								$this.parents('.filter__facet').find('.filter-popover').find('[data-id='+val+']').find('input').prop('checked', true);
+								console.log(false)
+							}
+
+							initCheck(parent);
+							event.stopPropagation();
+						});
+					}
+					btn_r.on('click', function(){
+						$(this).parents('.filter__item').removeClass('active');
+						$(this).parents('.filter__item').find('.filter__checkbox-item').removeClass('active');
+						$(this).parents('.filter__item').find('input:checked').prop('checked', false);
+					});
+		});
+		checkboxsPopup.each(function(){
+			var this_ = $(this),
+					item = this_.find('.filter__checkbox-item');
 
 					initCheck(this_);
 
@@ -654,24 +650,28 @@ $(document).ready(function () {
 								parent = this_.parents('.filter__facet'),
 								val = $this.data('id');
 
-						$this.toggleClass('active');
+						//$this.toggleClass('active');
 
-						if($this.hasAttr('data-id')){
-
+				
+						if($this.find('input:checked').length){
+							$this.parents('.filter__facet').find('.filter__emulate').find('[data-id='+val+']').addClass('active')//.find('input').prop('checked', false);
+						} else {
+							$this.parents('.filter__facet').find('.filter__emulate').find('[data-id='+val+']').removeClass('active')//.find('input').prop('checked', true);
 						}
 
 						initCheck(parent);
 						event.stopPropagation();
 					});
-					btn_r.on('click', function(){
-						$(this).parents('.filter__item').removeClass('active');
-						$(this).parents('.filter__item').find('.filter__checkbox-item').removeClass('active');
-						$(this).parents('.filter__item').find('input:checked').prop('checked', false);
-					});
 		});
 		function initCheck(list){
 			if(list.find(".active").length > 0 || list.find("input:checked").length > 0) {
 					list.parents('.filter__item').addClass('active');
+					if(list.find("input:checked")) {
+						list.find("input:checked").each(function(){
+							var val = $(this).parent().data('id');
+							checkboxs.find('[data-id='+val+']').addClass('active')
+						});
+					}
 				} else {
 					list.parents('.filter__item').removeClass('active');
 				}
