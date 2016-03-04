@@ -1186,8 +1186,39 @@ $(document).ready(function () {
 				});
 			return false;
 		});
-
-
 	};
+
+
+
+	//menu toggle show/hide
+
+	(function(){
+			$('.menu__tab').each(function(){
+				var _ = $(this),
+						hiddenCont = _.find('.hidden__container');
+						btnHideCont = '<div class="brands__toggle hide">Скрыть</div>',
+						btnShowCont = '<div class="brands__toggle show">Все бренды</div>';
+
+				if(hiddenCont.length){
+					hiddenCont.find(".menu__drop:last-of-type").append(btnHideCont);
+					_.find('.visible').first().find(".menu__drop:last-of-type").append(btnShowCont);
+				}
+
+
+				var	btnHide = _.find('.brands__toggle.hide'),
+						btnShow = _.find('.brands__toggle.show');
+
+				btnShow.on('click', function(){
+					hiddenCont.toggle("slide");
+					$(this).hide();
+				});
+				btnHide.on('click', function(){
+					hiddenCont.toggle("slide");
+					btnShow.show();
+				});
+
+			});
+		
+	})();
 
 })
