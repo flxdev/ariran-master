@@ -576,7 +576,7 @@ $(document).ready(function () {
 	(function(){
 		var filter_btn = $('.filter__control-item'),
 				checkboxs = $('.filter__emulate'),
-				list = $('.filter__list'),
+				list = $('.filter__list.checks'),
 				close = $('.filter-popover__close'),
 				f_popup = $('.filter-popover'),
 				checkboxsPopup = f_popup.find('.filter__list'),
@@ -650,7 +650,7 @@ $(document).ready(function () {
 								parent = this_.parents('.filter__facet'),
 								val = $this.data('id');
 
-						//$this.toggleClass('active');
+						$this.toggleClass('active');
 
 				
 						if($this.find('input:checked').length){
@@ -663,6 +663,30 @@ $(document).ready(function () {
 						event.stopPropagation();
 					});
 		});
+
+		list.each(function(){
+			var this_ = $(this),
+					item = this_.find('.filter__checkbox-item'),
+					btn_r =  this_.parents('.filter__fieldset').find('.btn_reset');
+
+					initCheck(this_);
+
+					item.on('click', function(event){
+						var $this = $(this),
+								parent = this_.parents('.filter__facet');
+
+								$this.toggleClass('active');
+
+								initCheck(parent); 
+					});
+
+					btn_r.on('click', function(){
+						$(this).parents('.filter__item').removeClass('active');
+						$(this).parents('.filter__item').find('.filter__checkbox-item').removeClass('active');
+						$(this).parents('.filter__item').find('input:checked').prop('checked', false);
+					});
+		});
+
 		function initCheck(list){
 			if(list.find(".active").length > 0 || list.find("input:checked").length > 0) {
 					list.parents('.filter__item').addClass('active');
