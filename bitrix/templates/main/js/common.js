@@ -17555,6 +17555,7 @@ $(document).ready(function () {
 	$.fn.hasAttr = function(name) {
 	  return this.attr(name) !== undefined;
 	};
+	
 	//basket
 	function inits(){
 		return {
@@ -18025,14 +18026,16 @@ $(document).ready(function () {
 				var form_this = $(this);
 				$.validate({
 					form : form_this,
-					validateOnBlur : false,
+					validateOnBlur : true,
 					borderColorOnError : false,
 					scrollToTopOnError : false,
 					onSuccess : function() {
-						if (form_this.hasClass('distribution')) {
-							reload(form_this);
+						if (form_this.hasClass('popups')) {
+							$('.popup').removeClass('is-open');
+							$('.success').addClass('is-open');
+							$('.popup').find('form').trigger('reset');
+							return false;
 						}
-						return false;
 					}
 				});
 			});
@@ -18718,6 +18721,9 @@ $(document).ready(function () {
       	if($(".c_select").hasClass('error-valid')){
       		return
       	}
+      	if($this.data('popup') === 'enter' || $this.data('popup') === 'reg') {
+      		$('.popup__wrap').removeClass('is-visible').delay(500).fadeOut(500);
+      	}
       	Popup($this.data('popup'));
 				return false;
       });
@@ -18758,6 +18764,8 @@ $(document).ready(function () {
 					duration: duration,
 					complete: function(){
 						html.removeClass('overlay');
+						$('.success').removeClass('is-open');
+						$('.success').prev().addClass('is-open');
 					}
 				});
 			return false;
