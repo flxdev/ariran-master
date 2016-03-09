@@ -940,19 +940,24 @@ $(document).ready(function () {
 	})();
 	//spinner count
 	$('.js-price').each(function() {
-		$('.spinner__input').on('change', function() {
-			$(this).parents('.js-price').find('.result').text($(this).val()*$(this).parents('.js-price').find('.result').data('price'));
-			$('.js-price-text').map(function() {
-				$(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
-			})
+		var this_ = $(this);
+			this_.find('.spinner__input').on('change', function() {
+				$(this).parents('.js-price').find('.result').text($(this).val()*$(this).parents('.js-price').find('.result').data('price'));
+				$('.js-price-text').map(function() {
+					$(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
+				});
+			});
+	});
+	$('.js-price-text').each(function(){
+		$(this).map(function() {
+			$(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
 		});
 	});
-
 	//prices
 	function prices() {
 		$(window).ready(function() {
 			$('.js-price').each(function() {
-				var val = $('.spinner__input').val();
+				var val = $(this).find('.spinner__input').val();
 				$(this).find('.result').text(val*$(this).find('.result').data('price'));
 			});
 
