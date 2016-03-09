@@ -938,6 +938,7 @@ $(document).ready(function () {
 			});
 		});
 	})();
+
 	//spinner count
 	$('.js-price').each(function() {
 		var this_ = $(this);
@@ -1256,6 +1257,14 @@ $(document).ready(function () {
 
 			});
 		
+	})();
+
+	//scroll content
+	(function(){
+		var scrollContainer = $('.scroll__container');
+		if(scrollContainer.length){
+			scrollContainer.find('.basket_slider').jScrollPane();
+		}
 	})();
 
 })
