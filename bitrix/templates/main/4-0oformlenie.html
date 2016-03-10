@@ -736,16 +736,163 @@
 						<img src="img/petal.png" alt="">
 					</div>
 				</div>
-				<h1>Моя корзина</h1>
+				<h1>Оформление заказа</h1>
 				<ul class="breadcrumbs">
-					<li><a href="">Главная</a></li>
-					<li>Моя корзина</li>
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Моя корзина</a></li>
+					<li>Оформление заказа</li>
 				</ul>
 			</div>
 			<div class="container">
 				<div class="order">
 					<div class="order_main b-radius">
-
+						<div class="tab__container">
+							<ul class="tab__nav">
+								<li><a data-href="ordered">Заказываю первый раз</a></li>
+								<li><a data-href="payment">Уже покупал (-а)</a></li>
+							</ul>
+							<div class="tab__content">
+								<div class="tab__item ordered">
+									<div class="form">
+										<form action="" class="js-validate">
+											<div class="field">
+												<div class="label__name">Телефон</div>
+												<div class="label__body">
+													<input type="text" class="input" data-validation="length" data-validation-length="5-20" placeholder="+375 (__) ___-__-__">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Регион</div>
+												<div class="label__body">
+													<select class="single_row" multiple="multiple" placeholder="Выберите регион">
+														<option value="Минск">Минск</option>
+														<option value="Минская облясть">Минская область</option>
+													</select>
+												</div>
+											</div>
+											<div class="delivery__selects">
+												<div class="row__selects">
+													<div class="field">
+														<div class="label__name">Способ доставки</div>
+														<div class="label__body">
+															<div class="menu">
+																<div class="menu__item"></div>
+																<div class="container__hint">
+																	<div class="hint__item courier">
+																		<div class="hint__item-container">
+																			<p>Стоимость доставки товара курьером до 100&nbsp;000 бел.руб. – 40&nbsp;000 бел. руб.</p>
+																			<p>Если сумма заказа превышает 100&nbsp;000 бел.руб., то доставка осуществляется бесплатно</p>
+																		</div>
+																	</div>
+																	<div class="hint__item post">
+																		<div class="hint__item-container">
+																			<p>К общей сумме заказа прибавляется 40 000 бел. руб. за обработку заказа.</p>
+																		</div>
+																	</div>
+																</div>
+																<ul class="menu__list">
+																	<li>
+																		<input id="courier" type="radio" name="option">
+																		<label for="courier" data-tab="courier">Доставка курьером</label>
+																	</li>
+																	<li>
+																		<input id="post" type="radio" name="option">
+																		<label for="post" data-tab="post">Доставка почтой</label>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="tab_delivery">
+															<div class="tab_delivery-item courier">
+																<div class="field">
+																	<div class="label__name">Адрес</div>
+																	<div class="label__body">
+																		<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Улица">
+																	</div>
+																	<div class="three-columns">
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Дом">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Корпус">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Квартира">
+																		</div>
+																	</div>
+																</div>
+																<div class="field">
+																	<div class="label__name">Способ оплаты</div>
+																	<div class="label__body">
+																		<select class="single_row" multiple="multiple" placeholder="Выберите способ оплаты">
+																			<option value="Минск">Минск</option>
+																			<option value="Минская облясть">Минская область</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="field">
+																	<div class="label__name">Время доставки</div>
+																	<div class="two-columns">
+																		<div class="label__body">
+																			<input type="text" class="input datepicker">
+																		</div>
+																		<div class="label__body">
+																			<select class="single_row" multiple="multiple" placeholder="Выберите время">
+																			<option value="09:00 – 13:00" selected>09:00 – 13:00</option>
+																			<option value="10:00 – 14:00">10:00 – 14:00</option>
+																		</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="field">
+																	<div class="label__name">Имя</div>
+																	<div class="label__body">
+																		<input type="text" class="input" data-validation="required">
+																	</div>
+																</div>
+																<div class="field">
+																	<div class="label__name">Фамилия</div>
+																	<div class="label__body">
+																		<input type="text" class="input" data-validation="required">
+																	</div>
+																</div>
+																<div class="field">
+																	<div class="label__name">E-mail</div>
+																	<div class="label__body">
+																		<input type="email" class="input" data-validation="email">
+																		<div class="newsletter">
+																			<input type="checkbox" id="newsletter" checked>
+																			<label for="newsletter">
+																				<span>Подписаться на новости и рассылку</span>
+																			</label>
+																		</div>
+																	</div>
+																</div>
+																<div class="field">
+																	<div class="label__name">Комментарий</div>
+																	<div class="label__body">
+																		<textarea class="textarea"></textarea>
+																	</div>
+																</div>
+																<div class="field send">
+																	<div class="label__body">
+																		<button class="btn btn_orange">подтвердить заказ</button>
+																	</div>
+																</div>
+															</div>
+															<div class="tab_delivery-item post">
+																2
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="tab__item payment">2</div>
+							</div>
+						</div>
 					</div>
 					<div class="order_right-bar b-radius order-">
 						<div class="order__head">
@@ -841,134 +988,6 @@
 							<div class="total__price js-price-text">Сумма заказа: <span>1669500</span> руб.</div>
 							<span class="delivery__case">Доставка: <span>бесплатно</span></span>
 							<div class="end__price js-price-text"><span>11669500</span> руб.</div>
-						</div>
-					</div>
-				</div>
-				<div class="similar_products">
-					<h2>Рекомендуем</h2>
-					<div class="sliders slider">
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href="#" class="title">Сыворотка антивозрастная с императорским лотосом MIZON Natural Seed</a>
-							<span class="subtitle">Сыворотка для волос</span>
-							<div class="box__price">
-								<span class="price">102 000 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
-						</div>
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href='#' class="title">Энергетический кондиционер DAENG GI MEO RI (Тенги Мори) Gold Energizing</a>
-							<span class="subtitle">Увлажняющее и питательное масло для тела</span>
-							<div class="box__price">
-								<span class="price">102 000 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
-						</div>
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href="" class="title">Тинт-бальзам для губ TONYMOLY Delight Tint Crayon 2.4г</a>
-							<span class="subtitle"> Парфюмированный мист для лица</span>
-							<div class="box__price">
-								<span class="price">102 000 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
-						</div>
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href="#" class="title">Ампулы для волос на основе арганового масла WELCOS Confume Argan Treatment Hair</a>
-							<span class="subtitle">Средство для восстановления сухих и поврежденных волос</span>
-							<div class="box__price">
-								<span class="old__price">179 500 руб.</span>
-								<span class="price">102 000 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
-						</div>
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href="#" class="title">Tony Moly Luminous Goddess Aura Make-up Mist</a>
-							<span class="subtitle">Сыворотка для волос</span>
-							<div class="box__price">
-								<span class="old__price">179 500 руб.</span>
-								<span class="price">102 000 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
-						</div>										
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href="#" class="title">Бальзам для губ TONYMOLY Kiss Kiss Lip Essence Balm SPF15 PA++ 7.2г.</a>
-							<span class="subtitle">Нежный питательный бальзам</span>
-							<div class="box__price">
-								<span class="old__price">179 500 руб.</span>
-								<span class="price">169 500 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
-						</div>
-						<div class="card_item b-radius">
-							<div class="img__box">
-								<img src="img/card-item.jpg" alt="">
-							</div>
-							<a href="#" class="title">Сыворотка антивозрастная с императорским лотосом MIZON Natural Seed</a>
-							<span class="subtitle">Сыворотка для волос</span>
-							<div class="box__price">
-								<span class="old__price">179 500 руб.</span>
-								<span class="price">102 000 руб.</span>
-							</div>
-							<div class="btn-detail">
-								<a href="" class="btn">Подробнее</a>
-								<div class="wish">
-									<i class="icon"><svg viewBox='0 0 20.5 18.3' xmlns="http://www.w3.org/2000/svg"><path d="m14.685715,0.142857c-1.799999,0 -3.4,0.9 -4.4,2.3c-1,-1.4 -2.600001,-2.3 -4.4,-2.3c-3.1,0 -5.6,2.5 -5.6,5.6c0,4.4 10,12.399999 10,12.399999s9.999998,-7.999999 9.999998,-12.399999c0,-3.1 -2.5,-5.6 -5.599998,-5.6z"/></svg></i>
-									<span>В желания</span>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>

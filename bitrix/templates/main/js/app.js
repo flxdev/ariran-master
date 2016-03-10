@@ -860,18 +860,23 @@ $(document).ready(function () {
 		var single_row = $('.single_row');
 
 		if(single_row.length){
-			single_row.multipleSelect({
-				single: true,
-				width: '100%',
-				onClose: function(){
-					$('.ms-choice').removeClass('is-active');
-					if($('.ms-parent').hasClass('select_valid')){
-						detectedCheck($('.ms-parent'));
-					}					
-				},
-				onClick: function(view){
+			single_row.each(function(){
+				var  _= $(this),
+						pholder = _.attr('placeholder');
+				_.multipleSelect({
+					single: true,
+					width: '100%',
+					placeholder: '' + pholder + '',
+					onClose: function(){
+						$('.ms-choice').removeClass('is-active');
+						if($('.ms-parent').hasClass('select_valid')){
+							detectedCheck($('.ms-parent'));
+						}					
+					},
+					onClick: function(view){
 
-				}
+					}
+				});
 			});
 		}
 		function detectedCheck(item){
@@ -1265,6 +1270,80 @@ $(document).ready(function () {
 		if(scrollContainer.length){
 			scrollContainer.find('.basket_slider').jScrollPane();
 		}
+	})();
+
+	//custom select delivery
+	function customSelect(){
+		var parent = $('.delivery__selects'),
+				menu = parent.find('.menu'),
+				list = menu.find('.menu__list'),
+				tab_delivery = parent.find('.tab_delivery'),
+				tab_item = tab_delivery.find('.tab_delivery-item'),
+				box = parent.find('.info__box'),
+				check_list = parent.find('.check__list'),
+				hints = parent.find('.hint__item');
+
+		$(document).on('click', function(){
+			menu.removeClass('active');
+			list.fadeOut(150);
+		});
+
+		list.find('li').first().find('input').prop('checked', true);
+		tab_item.first().show();
+		hints.first().show()
+
+		menu.each(function(){
+			var this_ = $(this),
+					item = this_.find('.menu__item'),
+					list = this_.find('.menu__list'),
+					label = this_.find('label'),
+					check = label.prev();
+
+			item.on('click', function(event){
+				this_.toggleClass('active');
+				list.fadeToggle(300);
+				event.stopPropagation();
+			});
+
+			label.on('click', function(){
+				var this_= $(this),
+					text = this_.text(),
+					data = this_.data('tab'),
+					parent = this_.parents('.field'),
+					hint = this_.parents('.menu').find('.container__hint');
+
+				menu.removeClass('active');
+				list.fadeOut(150);
+				item.text(text);
+				parent.find('.'+data).fadeIn(150).siblings().hide();
+				hint.find('.'+data).fadeIn(150).siblings().hide();
+			});
+
+			if(list.find('input:checked').length){
+				var checkIs = list.find('input:checked');
+						text = checkIs.parent().text();
+				item.text(text);
+			}
+
+		});
+
+	};
+	customSelect();
+
+	//data picker
+	(function(){
+		var picker = $('.datepicker');
+
+		picker.each(function(){
+			var _ = $(this);
+
+			_.datepicker({
+				minDate: "0",
+				//maxDate: "+1m +1w +3d"
+				formatDate: "DD, d MM, yy"
+			});
+			_.datepicker( "setDate" , "0");
+		});
 	})();
 
 })
