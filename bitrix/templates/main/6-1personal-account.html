@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-	<title>6-0personal-account</title>
+	<title>6-1personal-account</title>
 <head>
 	<meta charset="utf-8">
 	<meta name="description" content="">
@@ -769,73 +769,30 @@
 				<div class="contain">
 					<div class="personal-room b-radius">
 						<div class="reedit">
-							<a href="">Сменить пароль</a>
+							<a href="">Личные данные</a>
 						</div>
-						<div class="title__form">Редактировать личные данные</div>
+						<div class="title__form">Смена пароля</div>
 						<div class="form">
 							<form action="" class="js-validate">
 								<div class="field">
-									<div class="label__name">Имя<sup>*</sup></div>
+									<div class="label__name">Новый пароль</div>
 									<div class="label__body">
-										<input type="text" class="input" data-validation="required">
+										<input type="text" class="input" data-validation="required" name="pass">
 									</div>
 								</div>
 								<div class="field">
-									<div class="label__name">Фамилия<sup>*</sup></div>
+									<div class="label__name">Подтвердить пароль</div>
 									<div class="label__body">
-										<input type="text" class="input" data-validation="required">
-									</div>
-								</div>
-								<div class="field">
-									<div class="label__name">Телефон<sup>*</sup></div>
-									<div class="label__body">
-										<input type="text" class="input" data-validation="length" data-validation-length="5-20" placeholder="+375 (__) ___-__-__">
-									</div>
-								</div>
-								<div class="field">
-									<div class="label__name">E-mail<sup>*</sup></div>
-									<div class="label__body">
-										<input type="email" class="input" data-validation="email">
-									</div>
-								</div>
-								<div class="field">
-									<div class="label__name">Регион<sup>*</sup></div>
-									<div class="label__body">
-										<input type="text" class="input" data-validation="required" value="Минск">
-									</div>
-								</div>
-								<div class="field">
-									<div class="label__name">Адрес доставки<sup>*</sup></div>
-									<div class="two-columns">
-										<div class="label__body">
-											<input type="text" class="input" data-validation="required" placeholder="Город">
-										</div>
-										<div class="label__body">
-											<input type="text" class="input" data-validation="required" placeholder="Индекс">
-										</div>
-									</div>
-									<div class="label__body">
-										<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Улица">
-									</div>
-									<div class="three-columns">
-										<div class="label__body">
-											<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Дом">
-										</div>
-										<div class="label__body">
-											<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Корпус">
-										</div>
-										<div class="label__body">
-											<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Квартира">
-										</div>
+										<input type="text" class="input" data-validation-confirm="pass" data-validation="confirmation">
 									</div>
 								</div>
 								<div class="field send">
 									<div class="label__body">
-										<button class="btn btn_orange" type="submit">сохранить изменения</button>
+										<button class="btn btn_orange" type="submit">сменить пароль</button>
 									</div>
 								</div>
 							</form>
-							<div class="footnote">Звездочкой отмечены поля обязательные для заполнения</div>
+							<div class="footnote info">Пароль должен содержать цифры и латинские буквы и состоять не менее, чем из 6 символов.</div>
 						</div>
 					</div>
 				</div>

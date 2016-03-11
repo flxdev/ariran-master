@@ -477,9 +477,10 @@ $(document).ready(function () {
 					validateOnBlur : true,
 					borderColorOnError : false,
 					scrollToTopOnError : false,
+					modules : 'security',
 					onSuccess : function() {
 						var _ = form_this;
-						if(_.find('.single_rowt').length){
+						if(_.find('.single_row').length){
 							if(!_.find('.single_row').parents('.label__body').hasClass('has-success')){
 									return false;
 							}
