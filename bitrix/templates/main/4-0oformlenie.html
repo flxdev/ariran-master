@@ -745,11 +745,11 @@
 			</div>
 			<div class="container">
 				<div class="order">
-					<div class="order_main b-radius">
+					<div class="order_main b-radius order-form">
 						<div class="tab__container">
 							<ul class="tab__nav">
-								<li><a data-href="ordered">Заказываю первый раз</a></li>
-								<li><a data-href="payment">Уже покупал (-а)</a></li>
+								<li><a data-href="ordered"><span>Заказываю первый раз</span></a></li>
+								<li><a data-href="payment"><span>Уже покупал (-а)</span></a></li>
 							</ul>
 							<div class="tab__content">
 								<div class="tab__item ordered">
@@ -777,6 +777,16 @@
 														<div class="label__body">
 															<div class="menu">
 																<div class="menu__item"></div>
+																<ul class="menu__list">
+																	<li>
+																		<input id="courier" type="radio" name="option">
+																		<label for="courier" data-tab="courier">Доставка курьером</label>
+																	</li>
+																	<li>
+																		<input id="post" type="radio" name="option">
+																		<label for="post" data-tab="post">Доставка почтой</label>
+																	</li>
+																</ul>
 																<div class="container__hint">
 																	<div class="hint__item courier">
 																		<div class="hint__item-container">
@@ -790,16 +800,6 @@
 																		</div>
 																	</div>
 																</div>
-																<ul class="menu__list">
-																	<li>
-																		<input id="courier" type="radio" name="option">
-																		<label for="courier" data-tab="courier">Доставка курьером</label>
-																	</li>
-																	<li>
-																		<input id="post" type="radio" name="option">
-																		<label for="post" data-tab="post">Доставка почтой</label>
-																	</li>
-																</ul>
 															</div>
 														</div>
 														<div class="tab_delivery">
@@ -814,93 +814,142 @@
 																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Дом">
 																		</div>
 																		<div class="label__body">
-																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Корпус">
+																			<input type="text" class="input" placeholder="Корпус">
 																		</div>
 																		<div class="label__body">
-																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Квартира">
+																			<input type="text" class="input" placeholder="Квартира">
 																		</div>
-																	</div>
-																</div>
-																<div class="field">
-																	<div class="label__name">Способ оплаты</div>
-																	<div class="label__body">
-																		<select class="single_row" multiple="multiple" placeholder="Выберите способ оплаты">
-																			<option value="Минск">Минск</option>
-																			<option value="Минская облясть">Минская область</option>
-																		</select>
-																	</div>
-																</div>
-																<div class="field">
-																	<div class="label__name">Время доставки</div>
-																	<div class="two-columns">
-																		<div class="label__body">
-																			<input type="text" class="input datepicker">
-																		</div>
-																		<div class="label__body">
-																			<select class="single_row" multiple="multiple" placeholder="Выберите время">
-																			<option value="09:00 – 13:00" selected>09:00 – 13:00</option>
-																			<option value="10:00 – 14:00">10:00 – 14:00</option>
-																		</select>
-																		</div>
-																	</div>
-																</div>
-																<div class="field">
-																	<div class="label__name">Имя</div>
-																	<div class="label__body">
-																		<input type="text" class="input" data-validation="required">
-																	</div>
-																</div>
-																<div class="field">
-																	<div class="label__name">Фамилия</div>
-																	<div class="label__body">
-																		<input type="text" class="input" data-validation="required">
-																	</div>
-																</div>
-																<div class="field">
-																	<div class="label__name">E-mail</div>
-																	<div class="label__body">
-																		<input type="email" class="input" data-validation="email">
-																		<div class="newsletter">
-																			<input type="checkbox" id="newsletter" checked>
-																			<label for="newsletter">
-																				<span>Подписаться на новости и рассылку</span>
-																			</label>
-																		</div>
-																	</div>
-																</div>
-																<div class="field">
-																	<div class="label__name">Комментарий</div>
-																	<div class="label__body">
-																		<textarea class="textarea"></textarea>
-																	</div>
-																</div>
-																<div class="field send">
-																	<div class="label__body">
-																		<button class="btn btn_orange">подтвердить заказ</button>
 																	</div>
 																</div>
 															</div>
 															<div class="tab_delivery-item post">
-																2
+																<div class="field">
+																	<div class="label__name">Адрес</div>
+																	<div class="two-columns">
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Город">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Индекс">
+																		</div>
+																	</div>
+																	<div class="label__body">
+																		<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Улица">
+																	</div>
+																	<div class="three-columns">
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Дом">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" placeholder="Корпус">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" placeholder="Квартира">
+																		</div>
+																	</div>
+																</div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
+											<div class="field">
+												<div class="label__name">Способ оплаты</div>
+												<div class="label__body">
+													<select class="single_row" multiple="multiple" placeholder="Выберите способ оплаты">
+														<option value="Минск">Минск</option>
+														<option value="Минская облясть">Минская область</option>
+													</select>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Время доставки</div>
+												<div class="two-columns">
+													<div class="label__body picker_container">
+														<input type="text" class="input datepicker" readonly>
+													</div>
+													<div class="label__body">
+														<select class="single_row" multiple="multiple" placeholder="Выберите время">
+														<option value="09:00 – 13:00" selected>09:00 – 13:00</option>
+														<option value="10:00 – 14:00">10:00 – 14:00</option>
+													</select>
+													</div>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Имя</div>
+												<div class="label__body">
+													<input type="text" class="input" data-validation="required">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Фамилия</div>
+												<div class="label__body">
+													<input type="text" class="input" data-validation="required">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">E-mail</div>
+												<div class="label__body">
+													<input type="email" class="input" data-validation="email">
+													<div class="newsletter">
+														<input type="checkbox" id="newsletter" checked>
+														<label for="newsletter">
+															<span>Подписаться на новости и рассылку</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Комментарий</div>
+												<div class="label__body">
+													<textarea class="textarea"></textarea>
+												</div>
+											</div>
+											<div class="field send">
+												<div class="label__body">
+													<button class="btn btn_orange" type="submit">подтвердить заказ</button>
+												</div>
+											</div>
 										</form>
 									</div>
 								</div>
-								<div class="tab__item payment">2</div>
+								<div class="tab__item payment">
+									<div class="form">
+										<form action="" class="js-validate">
+											<div class="field">
+												<div class="label__name">E-mail</div>
+												<div class="label__body">
+													<input type="email" class="input" data-validation="email">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Пароль</div>
+												<div class="label__body">
+													<input type="password" class="input" data-validation="email">
+													<div class="return__pass">
+														<a href="">Забыли пароль?</a>
+													</div>
+												</div>
+											</div>
+											<div class="field send">
+												<div class="label__body">
+													<button class="btn btn_orange" type="submit">войти</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="order_right-bar b-radius order-">
+					<div class="order_right-bar b-radius order-price">
 						<div class="order__head">
 							<div class="order__head-left">Ваш заказ:</div>
 							<div class="order__head-right"><a href="">Редактировать</a></div>
 						</div>
 						<div class="scroll__container">
-							<div class="slider__container">
+							<div id="container" class="slider__container">
 								<div class="basket_slider">
 									<a href="#" class="item__basket">
 										<div class="img__box">
@@ -1294,6 +1343,9 @@
 						<div class="field">
 							<div class="label__field">Пароль<sup>*</sup></div>
 							<input class="field_input" type="password" data-validation="required">
+							<div class="return__pass">
+								<a href="">Забыли пароль?</a>
+							</div>
 						</div>
 						<div class="field">
 							<button class="btn btn_orange" type="submit">войти</button>

@@ -478,6 +478,12 @@ $(document).ready(function () {
 					borderColorOnError : false,
 					scrollToTopOnError : false,
 					onSuccess : function() {
+						var _ = form_this;
+						if(_.find('.single_rowt').length){
+							if(!_.find('.single_row').parents('.label__body').hasClass('has-success')){
+									return false;
+							}
+						}
 						if (form_this.hasClass('popups')) {
 							$('.popup').removeClass('is-open');
 							$('.success').addClass('is-open');
@@ -489,6 +495,84 @@ $(document).ready(function () {
 			});
 		}
 	})();
+
+	$("[type='submit']").on('click', function(){
+		var _ = $(this).parents(".js-validate");
+				select = _.find('.ms-parent.single_row');
+		select.each(function(){
+			var $this = $(this);
+			detectedSelect($this);
+		});
+	});
+
+
+	//multiplu select
+	(function(){
+		var single_row = $('.single_row');
+
+		if(single_row.length){
+			single_row.each(function(){
+				var  $this= $(this),
+						pholder = $this.attr('placeholder');
+				$this.multipleSelect({
+					single: true,
+					width: '100%',
+					placeholder: '' + pholder + '',
+					onClose: function(){
+						$('.ms-choice').removeClass('is-active');
+						if($('.ms-parent').hasClass('select_valid')){
+							detectedCheck($('.ms-parent'));
+						}
+						detectedSelect($this.next());
+					},
+					onClick: function(view){
+
+					}
+				});
+			});
+		}
+		function detectedCheck(item){
+			if(item.find('input:checked').length ) {
+				item.addClass('valid').removeClass('error');
+			} else {
+				item.addClass('error');
+			}
+		}
+		function activeSel() {
+			var parent = $('.single_row'),
+				item = parent.find('> button'),
+				li = parent.find('.ms-drop li');
+			item.on('click', function () {
+				var this_ = $(this),
+					div = this_.find('> div');
+				if (div.hasClass('open')) {
+					$('.ms-choice').removeClass('is-active');
+					div.parents('.ms-choice').addClass('is-active');
+				}
+				else {
+					div.parents('.ms-choice').removeClass('is-active');
+				}
+			});
+			li.on('click', function() {
+				var parent = $(this).parents('.single_row');
+				parent.find('.ms-choice').removeClass('is-active');
+			});
+
+		}
+		activeSel();
+	})();
+
+	function detectedSelect(item) {
+		console.log(item)
+		if(item.find('li.selected').length) {
+			item.find('.ms-choice').css('border-color', "#e2e2e2");
+			item.find('.ms-drop').parents('.label__body').removeClass('has-error');
+			item.find('.ms-drop').parents('.label__body').addClass('has-success');
+		}else {
+			item.find('.ms-choice').css('border-color', "#ff3030");
+			item.find('.ms-drop').parents('.label__body').addClass('has-error').removeClass('has-success');
+		}
+	}
 
 	//reload subscribe
 	function reload(forms){
@@ -582,8 +666,7 @@ $(document).ready(function () {
 				list = $('.filter__list.checks'),
 				close = $('.filter-popover__close'),
 				f_popup = $('.filter-popover'),
-				checkboxsPopup = f_popup.find('.filter__list'),
-				checkbox = $('.filter__btns');
+				checkboxsPopup = f_popup.find('.filter__list');
 		
 		filter_btn.on('click', function(event){
 			var this_ = $(this),
@@ -594,6 +677,41 @@ $(document).ready(function () {
 
 				event.stopPropagation();
 		});
+
+		// Fake radio
+    var fakeRadio      = $('.filter__btns label'),
+        fakeRadioInput = fakeRadio.find('input'),
+        parent = fakeRadio.parents('.filter__item'),
+        reset = parent.find('.btn_reset');
+
+    fakeRadioInput.each(function(){
+    		var _ = $(this);
+        if ($(this).is(':checked')) {
+            $(this).attr('previousvalue', 'checked');
+            parent.addClass('active');
+        }
+
+        $(this).on('click', function(){
+            var previousValue = $(this).attr('previousvalue');
+
+            parent.addClass('active');
+
+            if (previousValue == 'checked') {
+                $(this).prop('checked', false).attr('previousvalue', false);
+            } else {
+                $(this)
+                    .prop('checked', true)
+                    .attr('previousvalue', 'checked')
+                    .parent().siblings()
+                    .find('input:checked').click();
+            }
+        });
+        reset.on('click', function(){
+        	_.attr('previousvalue', 'false');
+        	_.prop('checked', false);
+        	parent.removeClass('active');
+        });
+    });
 
 		f_popup.on('click', function(event){
 			event.stopPropagation();
@@ -703,26 +821,6 @@ $(document).ready(function () {
 					list.parents('.filter__item').removeClass('active');
 				}
 		}
-
-		checkbox.each(function(){
-			var this_ = $(this),
-					check = this_.find('input'),
-					parent = this_.parents('.filter__item'),
-					reset = parent.find('.btn_reset');
-			if(check.prop('checked', true)){
-				parent.addClass('active');
-			}
-			check.on('click', function(){
-				if($(this).prop('checked', true)){
-					parent.addClass('active');
-				}
-			});
-			reset.on('click', function(){
-				check.prop('checked', false);
-				parent.removeClass('active');
-				console.log(true)
-			});
-		})
 	})();
 
 	//price slider
@@ -833,11 +931,6 @@ $(document).ready(function () {
 							};
 							slider.slider('values',1 , val1);
 						});
-
-						// function formatValue(input) {
-						// 	var t = input.replace(/\D/g, '');
-						// 	input = t.split("").reverse().join("").replace(/(\d{3})(?=\d)/g, "$1 ").split("").reverse().join("");
-						// }
 				
 					reset.on("click",function(){
 						var slider = parent.find(".js-ui-slider-main"),
@@ -853,61 +946,6 @@ $(document).ready(function () {
 					});
 				});
 			};
-	})();
-
-	//multiplu select
-	(function(){
-		var single_row = $('.single_row');
-
-		if(single_row.length){
-			single_row.each(function(){
-				var  _= $(this),
-						pholder = _.attr('placeholder');
-				_.multipleSelect({
-					single: true,
-					width: '100%',
-					placeholder: '' + pholder + '',
-					onClose: function(){
-						$('.ms-choice').removeClass('is-active');
-						if($('.ms-parent').hasClass('select_valid')){
-							detectedCheck($('.ms-parent'));
-						}					
-					},
-					onClick: function(view){
-
-					}
-				});
-			});
-		}
-		function detectedCheck(item){
-			if(item.find('input:checked').length ) {
-				item.addClass('valid').removeClass('error');
-			} else {
-				item.addClass('error');
-			}
-		}
-		function activeSel() {
-			var parent = $('.single_row'),
-				item = parent.find('> button'),
-				li = parent.find('.ms-drop li');
-			item.on('click', function () {
-				var this_ = $(this),
-					div = this_.find('> div');
-				if (div.hasClass('open')) {
-					$('.ms-choice').removeClass('is-active');
-					div.parents('.ms-choice').addClass('is-active');
-				}
-				else {
-					div.parents('.ms-choice').removeClass('is-active');
-				}
-			});
-			li.on('click', function() {
-				var parent = $(this).parents('.single_row');
-				parent.find('.ms-choice').removeClass('is-active');
-			});
-
-		}
-		activeSel();
 	})();
 
 	//spinner
@@ -1195,7 +1233,6 @@ $(document).ready(function () {
 				close = popupSelector.find('.popup__close'),
 				html = $('html');
 
-		html.addClass('overlay');
 		popupSelector
 			.fadeIn({
 				duration: duration,
@@ -1203,10 +1240,10 @@ $(document).ready(function () {
 					if($('.slider_simple').length) {
 						$('.slider_simple').slick('setPosition');
 					}
+					html.addClass('overlay');
 				},
 				complete: function(){
-					$(this).addClass('is-visible');
-					
+					$(this).addClass('is-visible');					
 				}
 			});
 
@@ -1266,9 +1303,16 @@ $(document).ready(function () {
 
 	//scroll content
 	(function(){
-		var scrollContainer = $('.scroll__container');
-		if(scrollContainer.length){
-			scrollContainer.find('.basket_slider').jScrollPane();
+		if($('#container').length){
+			var scrollContainer = document.getElementById('container');
+			Ps.initialize(scrollContainer, {
+				wheelSpeed: 0.1,
+				wheelPropagation: true,
+				minScrollbarLength: 20
+			});
+			$(window).on('resize', function(){
+				Ps.update(scrollContainer);
+			});
 		}
 	})();
 
@@ -1337,12 +1381,22 @@ $(document).ready(function () {
 		picker.each(function(){
 			var _ = $(this);
 
+			_.on('click', function(){
+				$(this).parent().addClass('open');
+			});
+
 			_.datepicker({
 				minDate: "0",
-				//maxDate: "+1m +1w +3d"
-				formatDate: "DD, d MM, yy"
+				beforeShowDay: $.datepicker.noWeekends,
+				onSelect: function(){
+					//alert()
+				},
+				onClose: function(){
+					$(this).parent().removeClass('open');
+				}
 			});
 			_.datepicker( "setDate" , "0");
+			_.datepicker( "option", "dateFormat", "DD, d MM");
 		});
 	})();
 
