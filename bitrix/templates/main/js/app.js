@@ -426,7 +426,8 @@ $(document).ready(function () {
 				} else {
 					$(this).addClass('active');
 				}
-			})
+				return false;
+			});
 		});
 	})();
 
