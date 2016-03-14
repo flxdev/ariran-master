@@ -492,6 +492,10 @@ $(document).ready(function () {
 							$('.popup').find('form').trigger('reset');
 							return false;
 						}
+						if (form_this.hasClass('distribution')) {
+							form_this.parents('.subscription').find('.back').addClass('active').siblings().removeClass('active');
+							return false;
+						}						
 					}
 				});
 			});
