@@ -19510,6 +19510,13 @@ $(document).ready(function () {
 					}
 				]
 			});
+			$('.c-blockquote').slick({
+				arrows: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				speed: 500,
+				infinite: true
+			});
 		}
 	})();
 
@@ -20391,6 +20398,13 @@ $(document).ready(function () {
 
 		close.add($('.popup .close, .popup__wrap')).on('click', function(){
 			if(!popupSelector.hasClass('is-visible')) return;
+
+			if($('.error').hasClass('is-open')) {
+				$('.error').removeClass('is-open');
+				$('.popup:first-child').addClass('is-open');
+				return false;
+			}
+
 			popupSelector
 				.removeClass("is-visible")
 				.delay(duration)
@@ -20398,7 +20412,7 @@ $(document).ready(function () {
 					duration: duration,
 					complete: function(){
 						html.removeClass('overlay');
-						$('.error').removeClass('is-open');
+						//$('.error').removeClass('is-open');
 						$('.success').removeClass('is-open');
 						$('.popup:first-child').addClass('is-open');
 					}
