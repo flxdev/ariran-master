@@ -20398,8 +20398,9 @@ $(document).ready(function () {
 					duration: duration,
 					complete: function(){
 						html.removeClass('overlay');
+						$('.error').removeClass('is-open');
 						$('.success').removeClass('is-open');
-						$('.success').prev().addClass('is-open');
+						$('.popup:first-child').addClass('is-open');
 					}
 				});
 			return false;
