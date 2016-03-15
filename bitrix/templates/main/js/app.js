@@ -846,8 +846,8 @@ $(document).ready(function () {
 							inputFromHidden = $(this).find(".js-input-from-hidden"),
 							inputTo = $(this).find(".js-ui-slider-to"),
 							inputToHidden = $(this).find(".js-input-to-hidden"),
-							maxVal = slider.attr("data-max"),
-							minVal = slider.attr("data-min"),
+							maxVal = +slider.attr("data-max"),
+							minVal = +slider.attr("data-min"),
 							valFrom = inputFromHidden.val(),
 							valTo = inputToHidden.val(),
 							stepVal = slider.attr("data-step"),
@@ -858,7 +858,7 @@ $(document).ready(function () {
 							inputFrom.val(valFrom);
 						}
 						if (valTo!=maxVal) {
-							inputTo.val(valTo);							
+							inputTo.val(valTo);
 						}
 
 						if(valTo != '' || valFrom != '') {
@@ -876,7 +876,7 @@ $(document).ready(function () {
 							range: true,
 							min: minVal,
 							max: maxVal,
-							//step: stepVal,
+							step: 1,
 							values: [ valFrom, valTo ],
 							stop: function( event, ui ) {
 								inputFrom.val(ui.values[0]);
@@ -1395,30 +1395,30 @@ $(document).ready(function () {
 	};
 	customSelect();
 
-	//data picker
-	(function(){
-		var picker = $('.datepicker');
+	// //data picker
+	// (function(){
+	// 	var picker = $('.datepicker');
 
-		picker.each(function(){
-			var _ = $(this);
+	// 	picker.each(function(){
+	// 		var _ = $(this);
 
-			_.on('click', function(){
-				$(this).parent().addClass('open');
-			});
+	// 		_.on('click', function(){
+	// 			$(this).parent().addClass('open');
+	// 		});
 
-			_.datepicker({
-				minDate: "0",
-				beforeShowDay: $.datepicker.noWeekends,
-				onSelect: function(){
-					//alert()
-				},
-				onClose: function(){
-					$(this).parent().removeClass('open');
-				}
-			});
-			_.datepicker( "setDate" , "0");
-			_.datepicker( "option", "dateFormat", "DD, d MM");
-		});
-	})();
+	// 		_.datepicker({
+	// 			minDate: "0",
+	// 			beforeShowDay: $.datepicker.noWeekends,
+	// 			onSelect: function(){
+	// 				//alert()
+	// 			},
+	// 			onClose: function(){
+	// 				$(this).parent().removeClass('open');
+	// 			}
+	// 		});
+	// 		_.datepicker( "setDate" , "0");
+	// 		_.datepicker( "option", "dateFormat", "DD, d MM");
+	// 	});
+	// })();
 
 })
