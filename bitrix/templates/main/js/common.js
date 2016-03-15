@@ -3410,7 +3410,7 @@ $(document).ready(function () {
 							minVal = +slider.attr("data-min"),
 							valFrom = inputFromHidden.val(),
 							valTo = inputToHidden.val(),
-							stepVal = slider.attr("data-step"),
+							stepVal = +slider.attr("data-step"),
 							reset = $(this).parents('.filter__item').find('.btn_reset'),
 							parent = slider.parents('.filter__item');
 
@@ -3454,6 +3454,9 @@ $(document).ready(function () {
 								}
 							}
 						});
+
+						inputFrom.val(slider.slider( "values", 0 ));
+						inputTo.val(slider.slider( "values", 1 ));
 
 
 						inputFrom.on('change', function(){
