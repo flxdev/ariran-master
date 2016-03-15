@@ -19670,9 +19670,12 @@ $(document).ready(function () {
 						}
 						detectedSelect($this.next());
 					},
-					onClick: function(view){
-
-					}
+					// onClick: function(view){
+					// 	//if($this.parents('#sort__panel').length) {
+					// 			var t = $this.parents('#sort__panel').attr('action');
+					// 			alert(t)
+					// 	//}
+					// }
 				});
 			});
 		}
@@ -20330,11 +20333,10 @@ $(document).ready(function () {
 			});
 
 			if(cItem.find('input:checked').length != 0) {
-				var _ = $('input:checked');
+				var _ = cItem.find('input:checked');
 				_.parents("li").addClass('selected').siblings().removeClass('selected')
 				values = _.val();
 				cButton.text(values);
-				//alert()
 				cButton.parents('.c_select').addClass('valid').removeClass('error-valid');
 			}
 		});
@@ -20530,30 +20532,62 @@ $(document).ready(function () {
 	};
 	customSelect();
 
-	// //data picker
-	// (function(){
-	// 	var picker = $('.datepicker');
+	//data picker
+	(function(){
+		var picker = $('.datepicker');
 
-	// 	picker.each(function(){
-	// 		var _ = $(this);
+		picker.each(function(){
+			var _ = $(this);
 
-	// 		_.on('click', function(){
-	// 			$(this).parent().addClass('open');
-	// 		});
+			_.on('click', function(){
+				$(this).parent().addClass('open');
+			});
 
-	// 		_.datepicker({
-	// 			minDate: "0",
-	// 			beforeShowDay: $.datepicker.noWeekends,
-	// 			onSelect: function(){
-	// 				//alert()
-	// 			},
-	// 			onClose: function(){
-	// 				$(this).parent().removeClass('open');
-	// 			}
-	// 		});
-	// 		_.datepicker( "setDate" , "0");
-	// 		_.datepicker( "option", "dateFormat", "DD, d MM");
-	// 	});
-	// })();
+			_.datepicker({
+				minDate: "0",
+				beforeShowDay: $.datepicker.noWeekends,
+				onSelect: function(){
+					//alert()
+				},
+				onClose: function(){
+					$(this).parent().removeClass('open');
+				}
+			});
+			_.datepicker( "setDate" , "0");
+			_.datepicker( "option", "dateFormat", "DD, d MM");
+		});
+	})();
+ 
+	function catalogAjax() {
+		var $catalog = $('#card__list');
+		var $sortPanel = $('#sort__panel');
+
+		$sortPanel.on('change', 'input', function() {
+			var curHref = $sortPanel.attr('action');
+			var newHref = curHref + (curHref.split('?')[1] ? '&':'?') + $sortPanel.serialize();
+			alert(newHref);
+
+		})
+
+		function catalogAjaxGo(href) {
+			var data = {'FLEX_AJAX' : 'Y', 'FLEX_FORM' : 'catalog'};
+			$.ajax({
+				url: href,
+				data: data,
+				type: 'get',
+				dataType: 'html',
+				success: function(otvet) {
+					$catalog.html(otvet);
+					$(window).stop().animate({'scrollTop' : 0});
+					try {
+						history.pushState(null, null, href);
+					return;
+					} catch(e) {}
+						location.hash = '#' + href;
+					}
+			})
+		}	
+	}
+	$(catalogAjax);
 
 })
