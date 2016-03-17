@@ -898,8 +898,8 @@ $(document).ready(function () {
 							}
 						});
 
-						inputFrom.val(slider.slider( "values", 0 ));
-						inputTo.val(slider.slider( "values", 1 ));
+						//inputFrom.val(slider.slider( "values", 0 ));
+						//inputTo.val(slider.slider( "values", 1 ));
 
 
 						inputFrom.on('change', function(){
@@ -1194,7 +1194,7 @@ $(document).ready(function () {
 
 			cItem.on('click', function(){
 				$(this).parent().addClass('selected').siblings().removeClass('selected');
-				values = $(this).find('input').val();
+				values = $(this).find('input').next().text();
 				cButton.text(values);
 				cList.fadeOut(duration);
 				cButton.parents('.c_select').addClass('valid').removeClass('error-valid');
@@ -1203,7 +1203,7 @@ $(document).ready(function () {
 			if(cItem.find('input:checked').length != 0) {
 				var _ = cItem.find('input:checked');
 				_.parents("li").addClass('selected').siblings().removeClass('selected')
-				values = _.val();
+				values = _.next().text();
 				cButton.text(values);
 				cButton.parents('.c_select').addClass('valid').removeClass('error-valid');
 			}
@@ -1236,8 +1236,10 @@ $(document).ready(function () {
       	if($(".c_select").hasClass('error-valid')){
       		return
       	}
-      	if($this.data('popup') === 'enter' || $this.data('popup') === 'reg') {
-      		$('.popup__wrap').removeClass('is-visible').delay(500).fadeOut(500);
+      	if($this.data('popup') === 'enter' || $this.data('popup') === 'reg' || $this.data('popup') === 'return') {
+      		if($(".popup__wrap").hasClass('is-visible')) {
+      			$('.popup__wrap').removeClass('is-visible').delay(500).fadeOut(500);
+      		}
       	}
       	Popup($this.data('popup'));
 				return false;
