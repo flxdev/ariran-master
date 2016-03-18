@@ -1,0 +1,287 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$breadcrumbs-name: 'breadcrumbs';
+$breadcrumbs-x: 121px;
+$breadcrumbs-y: 32px;
+$breadcrumbs-offset-x: -121px;
+$breadcrumbs-offset-y: -32px;
+$breadcrumbs-width: 4px;
+$breadcrumbs-height: 6px;
+$breadcrumbs-total-width: 133px;
+$breadcrumbs-total-height: 111px;
+$breadcrumbs-image: 'sprite.png';
+$breadcrumbs: (121px, 32px, -121px, -32px, 4px, 6px, 133px, 111px, 'sprite.png', 'breadcrumbs', );
+$btn-filter-name: 'btn-filter';
+$btn-filter-x: 121px;
+$btn-filter-y: 26px;
+$btn-filter-offset-x: -121px;
+$btn-filter-offset-y: -26px;
+$btn-filter-width: 4px;
+$btn-filter-height: 6px;
+$btn-filter-total-width: 133px;
+$btn-filter-total-height: 111px;
+$btn-filter-image: 'sprite.png';
+$btn-filter: (121px, 26px, -121px, -26px, 4px, 6px, 133px, 111px, 'sprite.png', 'btn-filter', );
+$btn-link-name: 'btn-link';
+$btn-link-x: 125px;
+$btn-link-y: 32px;
+$btn-link-offset-x: -125px;
+$btn-link-offset-y: -32px;
+$btn-link-width: 3px;
+$btn-link-height: 5px;
+$btn-link-total-width: 133px;
+$btn-link-total-height: 111px;
+$btn-link-image: 'sprite.png';
+$btn-link: (125px, 32px, -125px, -32px, 3px, 5px, 133px, 111px, 'sprite.png', 'btn-link', );
+$castle-name: 'castle';
+$castle-x: 43px;
+$castle-y: 0px;
+$castle-offset-x: -43px;
+$castle-offset-y: 0px;
+$castle-width: 43px;
+$castle-height: 42px;
+$castle-total-width: 133px;
+$castle-total-height: 111px;
+$castle-image: 'sprite.png';
+$castle: (43px, 0px, -43px, 0px, 43px, 42px, 133px, 111px, 'sprite.png', 'castle', );
+$check-success-name: 'check-success';
+$check-success-x: 43px;
+$check-success-y: 43px;
+$check-success-offset-x: -43px;
+$check-success-offset-y: -43px;
+$check-success-width: 38px;
+$check-success-height: 30px;
+$check-success-total-width: 133px;
+$check-success-total-height: 111px;
+$check-success-image: 'sprite.png';
+$check-success: (43px, 43px, -43px, -43px, 38px, 30px, 133px, 111px, 'sprite.png', 'check-success', );
+$check-name: 'check';
+$check-x: 38px;
+$check-y: 83px;
+$check-offset-x: -38px;
+$check-offset-y: -83px;
+$check-width: 14px;
+$check-height: 12px;
+$check-total-width: 133px;
+$check-total-height: 111px;
+$check-image: 'sprite.png';
+$check: (38px, 83px, -38px, -83px, 14px, 12px, 133px, 111px, 'sprite.png', 'check', );
+$close-filter-name: 'close-filter';
+$close-filter-x: 121px;
+$close-filter-y: 16px;
+$close-filter-offset-x: -121px;
+$close-filter-offset-y: -16px;
+$close-filter-width: 10px;
+$close-filter-height: 10px;
+$close-filter-total-width: 133px;
+$close-filter-total-height: 111px;
+$close-filter-image: 'sprite.png';
+$close-filter: (121px, 16px, -121px, -16px, 10px, 10px, 133px, 111px, 'sprite.png', 'close-filter', );
+$hint-name: 'hint';
+$hint-x: 121px;
+$hint-y: 0px;
+$hint-offset-x: -121px;
+$hint-offset-y: 0px;
+$hint-width: 12px;
+$hint-height: 16px;
+$hint-total-width: 133px;
+$hint-total-height: 111px;
+$hint-image: 'sprite.png';
+$hint: (121px, 0px, -121px, 0px, 12px, 16px, 133px, 111px, 'sprite.png', 'hint', );
+$mail-focus-name: 'mail-focus';
+$mail-focus-x: 19px;
+$mail-focus-y: 83px;
+$mail-focus-offset-x: -19px;
+$mail-focus-offset-y: -83px;
+$mail-focus-width: 19px;
+$mail-focus-height: 13px;
+$mail-focus-total-width: 133px;
+$mail-focus-total-height: 111px;
+$mail-focus-image: 'sprite.png';
+$mail-focus: (19px, 83px, -19px, -83px, 19px, 13px, 133px, 111px, 'sprite.png', 'mail-focus', );
+$mail-name: 'mail';
+$mail-x: 0px;
+$mail-y: 83px;
+$mail-offset-x: 0px;
+$mail-offset-y: -83px;
+$mail-width: 19px;
+$mail-height: 13px;
+$mail-total-width: 133px;
+$mail-total-height: 111px;
+$mail-image: 'sprite.png';
+$mail: (0px, 83px, 0px, -83px, 19px, 13px, 133px, 111px, 'sprite.png', 'mail', );
+$mobile-check-name: 'mobile-check';
+$mobile-check-x: 86px;
+$mobile-check-y: 47px;
+$mobile-check-offset-x: -86px;
+$mobile-check-offset-y: -47px;
+$mobile-check-width: 32px;
+$mobile-check-height: 27px;
+$mobile-check-total-width: 133px;
+$mobile-check-total-height: 111px;
+$mobile-check-image: 'sprite.png';
+$mobile-check: (86px, 47px, -86px, -47px, 32px, 27px, 133px, 111px, 'sprite.png', 'mobile-check', );
+$money-name: 'money';
+$money-x: 0px;
+$money-y: 43px;
+$money-offset-x: 0px;
+$money-offset-y: -43px;
+$money-width: 43px;
+$money-height: 40px;
+$money-total-width: 133px;
+$money-total-height: 111px;
+$money-image: 'sprite.png';
+$money: (0px, 43px, 0px, -43px, 43px, 40px, 133px, 111px, 'sprite.png', 'money', );
+$multi-name: 'multi';
+$multi-x: 125px;
+$multi-y: 26px;
+$multi-offset-x: -125px;
+$multi-offset-y: -26px;
+$multi-width: 6px;
+$multi-height: 4px;
+$multi-total-width: 133px;
+$multi-total-height: 111px;
+$multi-image: 'sprite.png';
+$multi: (125px, 26px, -125px, -26px, 6px, 4px, 133px, 111px, 'sprite.png', 'multi', );
+$not-stock-name: 'not-stock';
+$not-stock-x: 15px;
+$not-stock-y: 96px;
+$not-stock-offset-x: -15px;
+$not-stock-offset-y: -96px;
+$not-stock-width: 14px;
+$not-stock-height: 14px;
+$not-stock-total-width: 133px;
+$not-stock-total-height: 111px;
+$not-stock-image: 'sprite.png';
+$not-stock: (15px, 96px, -15px, -96px, 14px, 14px, 133px, 111px, 'sprite.png', 'not-stock', );
+$phone-name: 'phone';
+$phone-x: 0px;
+$phone-y: 96px;
+$phone-offset-x: 0px;
+$phone-offset-y: -96px;
+$phone-width: 15px;
+$phone-height: 15px;
+$phone-total-width: 133px;
+$phone-total-height: 111px;
+$phone-image: 'sprite.png';
+$phone: (0px, 96px, 0px, -96px, 15px, 15px, 133px, 111px, 'sprite.png', 'phone', );
+$pin-name: 'pin';
+$pin-x: 86px;
+$pin-y: 0px;
+$pin-offset-x: -86px;
+$pin-offset-y: 0px;
+$pin-width: 35px;
+$pin-height: 47px;
+$pin-total-width: 133px;
+$pin-total-height: 111px;
+$pin-image: 'sprite.png';
+$pin: (86px, 0px, -86px, 0px, 35px, 47px, 133px, 111px, 'sprite.png', 'pin', );
+$ruby-name: 'ruby';
+$ruby-x: 0px;
+$ruby-y: 0px;
+$ruby-offset-x: 0px;
+$ruby-offset-y: 0px;
+$ruby-width: 43px;
+$ruby-height: 43px;
+$ruby-total-width: 133px;
+$ruby-total-height: 111px;
+$ruby-image: 'sprite.png';
+$ruby: (0px, 0px, 0px, 0px, 43px, 43px, 133px, 111px, 'sprite.png', 'ruby', );
+$stock-name: 'stock';
+$stock-x: 52px;
+$stock-y: 83px;
+$stock-offset-x: -52px;
+$stock-offset-y: -83px;
+$stock-width: 14px;
+$stock-height: 12px;
+$stock-total-width: 133px;
+$stock-total-height: 111px;
+$stock-image: 'sprite.png';
+$stock: (52px, 83px, -52px, -83px, 14px, 12px, 133px, 111px, 'sprite.png', 'stock', );
+$time-name: 'time';
+$time-x: 29px;
+$time-y: 96px;
+$time-offset-x: -29px;
+$time-offset-y: -96px;
+$time-width: 14px;
+$time-height: 14px;
+$time-total-width: 133px;
+$time-total-height: 111px;
+$time-image: 'sprite.png';
+$time: (29px, 96px, -29px, -96px, 14px, 14px, 133px, 111px, 'sprite.png', 'time', );
+$spritesheet-width: 133px;
+$spritesheet-height: 111px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($breadcrumbs, $btn-filter, $btn-link, $castle, $check-success, $check, $close-filter, $hint, $mail-focus, $mail, $mobile-check, $money, $multi, $not-stock, $phone, $pin, $ruby, $stock, $time, );
+$spritesheet: (133px, 111px, 'sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Here are example usages in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+`display: inline-block` sprite:
+<img class="icon-home" />
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(../img/#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

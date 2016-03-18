@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+	<title>4-0oformlenie</title>
+//= includes/head.html
+
+<body>
+	//= includes/header_parallax.html
+	//= includes/header.html
+	<section class="out">
+		<div class="l">
+			<div class="head">
+				<div class="parallax_container">
+					<div class="js-parallax parallax-wrapper top slide-1" data-translate="12" data-dir="-1" data-left="" data-sp="0.3">
+						<img src="img/cream.png" alt="">
+					</div>
+					<div class="js-parallax parallax-wrapper bottom slide-2" data-translate="7" data-dir="-1" data-left="" data-sp="0.2">
+						<img src="img/petal.png" alt="">
+					</div>
+				</div>
+				<h1>Оформление заказа</h1>
+				<ul class="breadcrumbs">
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Моя корзина</a></li>
+					<li>Оформление заказа</li>
+				</ul>
+			</div>
+			<div class="container">
+				<div class="order">
+					<div class="order_main b-radius order-form">
+						<div class="tab__container">
+							<ul class="tab__nav">
+								<li><a data-href="ordered"><span>Заказываю первый раз</span></a></li>
+								<li><a data-href="payment"><span>Уже покупал (-а)</span></a></li>
+							</ul>
+							<div class="tab__content">
+								<div class="tab__item ordered">
+									<div class="form">
+										<form action="" class="js-validate">
+											<div class="field">
+												<div class="label__name">Телефон</div>
+												<div class="label__body">
+													<input type="text" class="input" data-validation="length" data-validation-length="5-20" placeholder="+375 (__) ___-__-__">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Регион</div>
+												<div class="label__body">
+													<select class="single_row" multiple="multiple" placeholder="Выберите регион">
+														<option value="Минск">Минск</option>
+														<option value="Минская облясть">Минская область</option>
+													</select>
+												</div>
+											</div>
+											<div class="delivery__selects">
+												<div class="row__selects">
+													<div class="field">
+														<div class="label__name">Способ доставки</div>
+														<div class="label__body">
+															<div class="menu">
+																<div class="menu__item"></div>
+																<ul class="menu__list">
+																	<li>
+																		<input id="courier" type="radio" name="option">
+																		<label for="courier" data-tab="courier">Доставка курьером</label>
+																	</li>
+																	<li>
+																		<input id="post" type="radio" name="option">
+																		<label for="post" data-tab="post">Доставка почтой</label>
+																	</li>
+																</ul>
+																<div class="container__hint">
+																	<div class="hint__item courier">
+																		<div class="hint__item-container">
+																			<p>Стоимость доставки товара курьером до 100&nbsp;000 бел.руб. – 40&nbsp;000 бел. руб.</p>
+																			<p>Если сумма заказа превышает 100&nbsp;000 бел.руб., то доставка осуществляется бесплатно</p>
+																		</div>
+																	</div>
+																	<div class="hint__item post">
+																		<div class="hint__item-container">
+																			<p>К общей сумме заказа прибавляется 40 000 бел. руб. за обработку заказа.</p>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="tab_delivery">
+															<div class="tab_delivery-item courier">
+																<div class="field">
+																	<div class="label__name">Адрес</div>
+																	<div class="label__body">
+																		<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Улица">
+																	</div>
+																	<div class="three-columns">
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Дом">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" placeholder="Корпус">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" placeholder="Квартира">
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="tab_delivery-item post">
+																<div class="field">
+																	<div class="label__name">Адрес</div>
+																	<div class="two-columns">
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Город">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Индекс">
+																		</div>
+																	</div>
+																	<div class="label__body">
+																		<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Улица">
+																	</div>
+																	<div class="three-columns">
+																		<div class="label__body">
+																			<input type="text" class="input" data-validation="length" data-validation-length="1-20" placeholder="Дом">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" placeholder="Корпус">
+																		</div>
+																		<div class="label__body">
+																			<input type="text" class="input" placeholder="Квартира">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Способ оплаты</div>
+												<div class="label__body">
+													<select class="single_row" multiple="multiple" placeholder="Выберите способ оплаты">
+														<option value="Минск">Минск</option>
+														<option value="Минская облясть">Минская область</option>
+													</select>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Время доставки</div>
+												<div class="two-columns">
+													<div class="label__body picker_container">
+														<input type="text" class="input datepicker" readonly>
+													</div>
+													<div class="label__body">
+														<select class="single_row" multiple="multiple" placeholder="Выберите время">
+														<option value="09:00 – 13:00" selected>09:00 – 13:00</option>
+														<option value="10:00 – 14:00">10:00 – 14:00</option>
+													</select>
+													</div>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Имя</div>
+												<div class="label__body">
+													<input type="text" class="input" data-validation="required">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Фамилия</div>
+												<div class="label__body">
+													<input type="text" class="input" data-validation="required">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">E-mail</div>
+												<div class="label__body">
+													<input type="email" class="input" data-validation="email">
+													<div class="newsletter">
+														<input type="checkbox" id="newsletter" checked>
+														<label for="newsletter">
+															<span>Подписаться на новости и рассылку</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Комментарий</div>
+												<div class="label__body">
+													<textarea class="textarea"></textarea>
+												</div>
+											</div>
+											<div class="field send">
+												<div class="label__body">
+													<button class="btn btn_orange" type="submit">подтвердить заказ</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="tab__item payment">
+									<div class="form">
+										<form action="" class="js-validate">
+											<div class="field">
+												<div class="label__name">E-mail</div>
+												<div class="label__body">
+													<input type="email" class="input" data-validation="email">
+												</div>
+											</div>
+											<div class="field">
+												<div class="label__name">Пароль</div>
+												<div class="label__body">
+													<input type="password" class="input" data-validation="email">
+													<div class="return__pass">
+														<a data-popup="return">Забыли пароль?</a>
+													</div>
+												</div>
+											</div>
+											<div class="field send">
+												<div class="label__body">
+													<button class="btn btn_orange" type="submit">войти</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="order_right-bar b-radius order-price">
+						<div class="order__head">
+							<div class="order__head-left">Ваш заказ:</div>
+							<div class="order__head-right"><a href="">Редактировать</a></div>
+						</div>
+						<div class="scroll__container">
+							<div id="container" class="slider__container">
+								<div class="basket_slider">
+									<a href="#" class="item__basket">
+										<div class="img__box">
+											<img src="img/slide.jpg">
+										</div>
+										<div class="basket_content">
+											<div class="title">Ампулы для волос на основе арганово масла</div>
+											<div class="item__descr-option">
+												<dl class="product-spec">
+													<dt class="product-spec__name"><span class="product-spec__name-inner">Цвет:</span></dt>
+													<dd class="product-spec__value"><span class="product-spec__value-inner">Chocolate cupcake</span></dd>
+												</dl>
+												<dl class="product-spec">
+													<dt class="product-spec__name"><span class="product-spec__name-inner">Кол-во:</span></dt>
+													<dd class="product-spec__value"><span class="product-spec__value-inner">1</span></dd>
+												</dl>
+											</div>
+											<div class="price__case">
+												<span class="price">162 500 руб.</span>
+												<span class="old_price">179 500 руб.</span>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="item__basket">
+										<div class="img__box">
+											<img src="img/slide.jpg">
+										</div>
+										<div class="basket_content">
+											<div class="title">Ампулы для волос на основе арганово масла</div>
+											<div class="item__descr-option">
+												<dl class="product-spec">
+													<dt class="product-spec__name"><span class="product-spec__name-inner">Цвет:</span></dt>
+													<dd class="product-spec__value"><span class="product-spec__value-inner">Chocolate cupcake</span></dd>
+												</dl>
+												<dl class="product-spec">
+													<dt class="product-spec__name"><span class="product-spec__name-inner">Кол-во:</span></dt>
+													<dd class="product-spec__value"><span class="product-spec__value-inner">1</span></dd>
+												</dl>
+											</div>
+											<div class="price__case">
+												<span class="price">162 500 руб.</span>
+												<span class="old_price">179 500 руб.</span>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="item__basket">
+										<div class="img__box">
+											<img src="img/slide.jpg">
+										</div>
+										<div class="basket_content">
+											<div class="title">Ампулы для волос на основе арганово масла</div>
+											<div class="item__descr-option">
+												<dl class="product-spec">
+													<dt class="product-spec__name"><span class="product-spec__name-inner">Цвет:</span></dt>
+													<dd class="product-spec__value"><span class="product-spec__value-inner">Chocolate cupcake</span></dd>
+												</dl>
+												<dl class="product-spec">
+													<dt class="product-spec__name"><span class="product-spec__name-inner">Кол-во:</span></dt>
+													<dd class="product-spec__value"><span class="product-spec__value-inner">1</span></dd>
+												</dl>
+											</div>
+											<div class="price__case">
+												<span class="price">162 500 руб.</span>
+												<span class="old_price">179 500 руб.</span>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="item__basket">
+										<div class="img__box">
+											<img src="img/slide.jpg">
+										</div>
+										<div class="basket_content">
+											<div class="title">Ампулы для волос на основе арганово масла</div>
+											<span class="descr">Средство для восстановления сухих и поврежденных волос</span>
+											<div class="price__case">
+												<span class="price">162 500 руб.</span>
+												<span class="old_price">179 500 руб.</span>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="price__container">
+							<div class="total__price js-price-text">Сумма заказа: <span>1669500</span> руб.</div>
+							<span class="delivery__case">Доставка: <span>бесплатно</span></span>
+							<div class="end__price js-price-text"><span>11669500</span> руб.</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</section>
+	//= includes/map.html
+	//= includes/footer.html
+	//= includes/mobile-menu.html
+	//= includes/popups.html
+	//= includes/mobile-filter.html
+</body>
+</html>

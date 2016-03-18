@@ -1,0 +1,14 @@
+//= lib/head.js
+//= ../../bower_components/jquery/dist/jquery.min.js
+//= lib/modernizr.js
+//= lib/parallax.js
+//= lib/instafeed.min.js
+//= lib/jquery.sticky-kit.min.js
+//= lib/jquery.validator.min.js
+//= lib/jquery-ui.min.js
+//= lib/jquery-ui-slide.min.js
+//= lib/datepicker-ru.js
+//= lib/multiple-select.js
+//= lib/slick.min.js
+//= lib/perfect-scrollbar.js
+//= app.js
