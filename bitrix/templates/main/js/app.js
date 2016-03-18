@@ -1460,4 +1460,28 @@ $(document).ready(function () {
 	}
 	$(catalogAjax);
 
+	if ($('#maps').length) {
+		ymaps.ready(init);
+	}
+
+	function init() {
+		var coord = [53.916352, 27.579602];
+		var myMap = new ymaps.Map('maps', {
+				center: [53.916352, 27.579602],
+				zoom: 16,
+				controls: []
+			}),
+			Placemark = new ymaps.Placemark([53.916352, 27.579602], {
+				balloonContentHeader: "Балун метки",
+				balloonContentBody: "Содержимое <em>балуна</em> метки",
+			}, {
+				iconLayout: 'default#image',
+				iconImageHref: 'img/icons/pin.png',
+				iconImageSize: [35, 47],
+				iconImageOffset: [-18, -47]
+			});
+			myMap.geoObjects.add(Placemark);
+			myMap.behaviors.disable('scrollZoom');
+		};		
+
 })
