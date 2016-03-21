@@ -1075,6 +1075,9 @@ body {
 		@include r(1279) {
 			font-size: 80%;
 		}
+		@include r(1023) {
+			margin-top: 1.25em;
+		}
 	}
 }
 .b-radius {
@@ -2989,10 +2992,11 @@ data {
 	@include r(1023) {
 		margin-top: 0;
 		width: 100%;
-		margin-bottom: 2.5em;
+		margin-bottom: 1.25em;
 	}
 	@include r(749) {
 		text-align: center;
+		margin-bottom: 1.25em;
 	}
 }
 .filter_stock {
@@ -3489,7 +3493,7 @@ data {
 	padding: 1.25em 1.25em 0 1.25em; // 20px / 16px
 	//margin-right: -1.25em;
 	margin-top: -1.25em; // 20px / 16px
-	min-height: 20em;
+	//min-height: 20em;
 	@include clearfix;
 	@include r(1023) {
 		overflow: visible;
@@ -7137,7 +7141,7 @@ blockquote {
 			margin: -0.5828em -0.3528em 1.25em;
 		}
 		@include r(1023) {
-			margin: 0 0 1.25em -1.75em;
+			margin: -0.35em -0.35em 1.25em -0.35em;
 		}
 		@include r(749) {
 			margin: 0 0 1.25em -0.95em;
@@ -7156,9 +7160,9 @@ blockquote {
 				}
 			}
 			@include r(1023) {
-				margin: 0 0 1.75em 1.75em;
-				width: 13em;
-				max-width: 13em;
+				margin: 0.35em;
+				width: 31.3%;
+				max-width: 31.3%;
 				.btn-detail {
 					display: none;
 				}
@@ -7238,6 +7242,54 @@ blockquote {
 		.icon {
 			left: auto;
 			margin: 0;
+		}
+	}
+}
+.brand__container {
+	margin: -0.625em -0.265em -0.625em -0.685em; // 10px / 16px + 0.36em
+	padding: 0 0 1.25em 0;
+	@include r(1366) {
+		//margin: -0.625em -0.265em -0.625em -0.485em; // 10px / 16px + 0.36em
+		//font-size: 75%;
+	}
+	@include r(1279) {
+		//font-size: 60%;
+	}
+	.brand__item {
+		margin: 0.625em 0.265em 0.625em 0.685em; // 10px / 16px
+		background-color: $white;
+		border-radius: 5px;
+		width: 12.5em; // 200px / 16px
+		height: 10.9375em; // 175px / 16px
+		position: relative;
+		display: inline-block;
+		transition: box-shadow 0.3s ease;
+		@include r(1366) {
+			//margin: 0.625em 0.265em 0.625em 0.485em; // 10px / 16px
+			width: 12.25em; // 196px / 16px
+		}
+		@include r(1279) {
+			width: 11.2em; // 176px / 16px
+		}
+		@include r(1023) {
+			width: 9.85em; // 176px / 16px
+			height: 9.85em;
+		}
+		@include r(749) {
+			width: 45.5%; // 176px / 16px
+			height: 10.9375em; // 175px / 16px
+		}
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			position: relative;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			padding: 0.5em;
+		}
+		&:hover {
+			box-shadow: 0 1px 10px 0 rgba(255, 80, 36, 0.8)
 		}
 	}
 }
