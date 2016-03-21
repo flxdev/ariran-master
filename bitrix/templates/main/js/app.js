@@ -51,6 +51,10 @@ $(document).ready(function () {
 					input = this_.find('.input'),
 					reset = this_.find('.reset');
 
+			if (input.val().length > 0) {
+				reset.fadeIn(150);
+			}
+
 			input.on('input', function(){
 				var value = $(this).val();
 				if(value.length > 0) {
@@ -64,6 +68,7 @@ $(document).ready(function () {
 			reset.on('click', function(){
 				input.val('');
 				$(this).fadeOut(100);
+				input.attr('value', '');
 				input.removeClass('active');
 			});
 		});
