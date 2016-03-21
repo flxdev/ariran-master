@@ -7131,6 +7131,53 @@ blockquote {
 			font-size: 0.875em; // 14px / 16px
 		}
 	}
+	.result__search {
+		margin: -0.5828em -0.4828em 1.25em;
+		@include r(1366) {
+			margin: -0.5828em -0.3528em 1.25em;
+		}
+		@include r(1023) {
+			margin: 0 0 1.25em -1.75em;
+		}
+		@include r(749) {
+			margin: 0 0 1.25em -0.95em;
+		}
+		.card_item {
+			margin: 0.5828em 0.4828em;
+			@include r(1366) {
+				margin: 0.5828em 0.3528em;
+			}
+			@include r(1279) {
+				margin: 0.5828em 0.3528em 0.5028em;
+				max-width: 11.46em;
+				.btn-detail {
+					left: 0.6em;
+					right: 0.6em;
+				}
+			}
+			@include r(1023) {
+				margin: 0 0 1.75em 1.75em;
+				width: 13em;
+				max-width: 13em;
+				.btn-detail {
+					display: none;
+				}
+			}
+			@include r(749) {
+				font-size: 95%;
+				height: 23.125em;
+				width: 12.5em;
+				max-width: 12.5em;
+				margin: 0 0 0.95em 0.95em;
+				.img__box {
+					height: 11.25em;
+				}
+				.title, .subtitle, .box__price {
+					font-size: 100%;
+				}
+			}
+		}
+	}
 }
 .search__area {
 	padding: 1.6875em 1.9375em 2.5625em; // 27px 31px 41px / 16px
