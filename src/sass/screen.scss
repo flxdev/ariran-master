@@ -6554,6 +6554,12 @@ data {
 		margin-bottom: 0.93333em; // 28px / 30px
 
 	}
+	&.content-brand {
+		margin-bottom: 5.625em;
+		 & + .single__slider {
+		 	margin-bottom: 1.25em;
+		 }
+	}
 }
 .article {
 	@include clearfix;
@@ -6584,6 +6590,15 @@ data {
 				left: auto;
 				top: auto;
 				transform: none;
+			}
+			&.img__box-brand {
+				height: 248px;
+				border: 1px solid #ddd;
+				img {
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%,-50%);
+				}
 			}
 		}
 		h2 {
@@ -7286,7 +7301,7 @@ blockquote {
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
-			padding: 0.5em;
+			padding: 0.9em;
 		}
 		&:hover {
 			box-shadow: 0 1px 10px 0 rgba(255, 80, 36, 0.8)
