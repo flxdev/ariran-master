@@ -553,7 +553,7 @@ $(document).ready(function () {
 
 
 	//multiplu select
-	(function(){
+	function MultiPlu(){
 		var single_row = $('.single_row');
 
 		if(single_row.length){
@@ -579,7 +579,7 @@ $(document).ready(function () {
 					// }
 				});
 			});
-		}
+		};
 		function detectedCheck(item){
 			if(item.find('input:checked').length ) {
 				item.addClass('valid').removeClass('error');
@@ -609,7 +609,8 @@ $(document).ready(function () {
 
 		}
 		activeSel();
-	})();
+	};
+	MultiPlu();
 
 	function detectedSelect(item) {
 		console.log(item)
