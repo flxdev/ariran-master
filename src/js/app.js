@@ -571,46 +571,43 @@ $(document).ready(function () {
 						}
 						detectedSelect($this.next());
 					},
-					// onClick: function(view){
-					// 	//if($this.parents('#sort__panel').length) {
-					// 			var t = $this.parents('#sort__panel').attr('action');
-					// 			alert(t)
-					// 	//}
-					// }
+					onClick: function(view){
+						
+					}
 				});
 			});
 		};
-		function detectedCheck(item){
-			if(item.find('input:checked').length ) {
-				item.addClass('valid').removeClass('error');
-			} else {
-				item.addClass('error');
-			}
-		}
-		function activeSel() {
-			var parent = $('.single_row'),
-				item = parent.find('> button'),
-				li = parent.find('.ms-drop li');
-			item.on('click', function () {
-				var this_ = $(this),
-					div = this_.find('> div');
-				if (div.hasClass('open')) {
-					$('.ms-choice').removeClass('is-active');
-					div.parents('.ms-choice').addClass('is-active');
-				}
-				else {
-					div.parents('.ms-choice').removeClass('is-active');
-				}
-			});
-			li.on('click', function() {
-				var parent = $(this).parents('.single_row');
-				parent.find('.ms-choice').removeClass('is-active');
-			});
-
-		}
-		activeSel();
 	};
 	MultiPlu();
+
+	function detectedCheck(item){
+		if(item.find('input:checked').length ) {
+			item.addClass('valid').removeClass('error');
+		} else {
+			item.addClass('error');
+		}
+	}
+	function activeSel() {
+		var parent = $('.single_row'),
+			item = parent.find('> button'),
+			li = parent.find('.ms-drop li');
+		item.on('click', function () {
+			var this_ = $(this),
+				div = this_.find('> div');
+			if (div.hasClass('open')) {
+				$('.ms-choice').removeClass('is-active');
+				div.parents('.ms-choice').addClass('is-active');
+			}
+			else {
+				div.parents('.ms-choice').removeClass('is-active');
+			}
+		});
+		li.on('click', function() {
+			var parent = $(this).parents('.single_row');
+			parent.find('.ms-choice').removeClass('is-active');
+		});
+	}
+	activeSel();
 
 	function detectedSelect(item) {
 		console.log(item)
@@ -790,15 +787,10 @@ $(document).ready(function () {
 					
 							if($this.hasClass('active')){
 									$this.removeClass('active')
-									$this.parents('.filter__facet').find('.filter-popover').find('[data-id='+val+']').find('input').prop('checked', false);
-									console.log(true)
-								
-								
+									$this.parents('.filter__facet').find('.filter-popover').find('[data-id='+val+']').find('input').prop('checked', false);							
 							} else {
 								$this.addClass('active')
-								$this.parents('.filter__facet').find('.filter-popover').find('[data-id='+val+']').find('input').prop('checked', true);
-								console.log(false)
-							}
+								$this.parents('.filter__facet').find('.filter-popover').find('[data-id='+val+']').find('input').prop('checked', true);							}
 
 							initCheck(parent);
 							event.stopPropagation();
@@ -1394,9 +1386,11 @@ $(document).ready(function () {
 			list.fadeOut(150);
 		});
 
-		list.find('li').first().find('input').prop('checked', true);
-		tab_item.first().show();
-		hints.first().show()
+		if(!list.find('input:checked').length) {
+			list.find('li').first().find('input').prop('checked', true);
+			tab_item.first().show();
+			hints.first().show();
+		}
 
 		menu.each(function(){
 			var this_ = $(this),
@@ -1423,13 +1417,38 @@ $(document).ready(function () {
 				item.text(text);
 				parent.find('.'+data).fadeIn(150).siblings().hide();
 				hint.find('.'+data).fadeIn(150).siblings().hide();
+
+
 			});
 
-			if(list.find('input:checked').length){
-				var checkIs = list.find('input:checked');
-						text = checkIs.parent().text();
-				item.text(text);
-			}
+			check.each(function(){
+				var _ = $(this);
+				if ($(this).is(':checked')) {
+					var checkIs = list.find('input:checked');
+					$(this).attr('previousvalue', 'checked');
+					text = checkIs.parent().text();
+					item.text(text);
+
+					var tab = $(this).attr('id');
+
+					_.parents('.menu').find('.'+tab).show();
+
+				}
+
+				$(this).next().on('click', function(){
+					var previousValue = $(this).attr('previousvalue');
+
+					if (previousValue === 'checked') {
+						$(this).prop('checked', false).attr('previousvalue', false);
+					} else {
+						$(this)
+							.prop('checked', true)
+							.attr('previousvalue', 'checked')
+							.parents('li').siblings()
+							.find('input:checked').click();
+					}
+				});
+			});
 
 		});
 
@@ -1469,8 +1488,6 @@ $(document).ready(function () {
 		$sortPanel.on('change', 'input', function() {
 			var curHref = $sortPanel.attr('action');
 			var newHref = curHref + (curHref.split('?')[1] ? '&':'?') + $sortPanel.serialize();
-			alert(newHref);
-
 		})
 
 		function catalogAjaxGo(href) {
