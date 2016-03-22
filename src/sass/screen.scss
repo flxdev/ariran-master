@@ -7375,6 +7375,185 @@ blockquote {
 		letter-spacing: 1.7px;
 	}
 }
+.accordion__container {
+	max-width: 930px;
+	.accordion__head {
+		display: table;
+		table-layout: fixed;
+		border-bottom: 1px solid #eeeeee;
+		width: 100%;
+		.accordion__head-item {
+			display: table-cell;
+			&:first-child {
+				padding: 0 0 0 54px;
+				width: 16.6%;
+				@include r(1279) {
+					padding: 0 0 0 30px;
+				}
+				@include r(1023) {
+					padding: 0 0 0 20px;
+				}
+			}
+			&:nth-child(2) {
+				width: 12.65%;
+			}
+			&:nth-child(3) {
+				width: 13.35%;
+			}
+			&:nth-child(4) {
+				width: 18.6%;
+			}
+			.sorting__item {
+				font-family: $FuturaNewBook;
+				font-size: 0.9375em; // 15px / 16px
+				color: $brown;
+				padding: 9px 17px;
+				position: relative;
+				&::after {
+					content: '';
+					position: absolute;
+					top: 45%;
+					right: 0;
+					transform: translateX(-50%) rotate(45deg);
+					border-right: 1px solid $brown;
+					border-bottom: 1px solid $brown;
+					width: 5px;
+					height: 5px;
+					will-change: transform;
+				}
+				&.asc {
+					&::after {
+						top: 50%;
+						transform: translateX(-50%) rotate(225deg);
+					}
+				}
+				&.desc {
+					&::after {
+						transform: translateX(-50%) rotate(45deg);
+					}
+				}
+			}
+		}
+	}
+	.accordions {
+		.accord {
+			border-bottom: 1px solid #eeeeee;
+			.accord__but {
+				cursor: pointer;
+				background-color: $white;
+				transition: background-color 0.3s ease;
+				position: relative;
+				&::after {
+					content: '';
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 4px 2.5px 0 2.5px;
+					border-color: $brown transparent transparent transparent;
+					position: absolute;
+					top: 50%;
+					transform: translateX(50%);
+					left: 3.6%;
+					@include r(1279) {
+						left: 1.8%;
+					}
+				}
+				&:hover {
+					background-color: #fafafa;
+				}
+				.accord__wrap {
+					display: table;
+					table-layout: fixed;
+					width: 100%;
+					.accord__left {
+						display: table-cell;
+						width: 26.6%;
+						padding: 0 0 0 54px;
+						vertical-align: middle;
+						@include r(1279) {
+							padding: 0 0 0 30px;
+						}
+						@include r(1023) {
+							padding: 0 0 0 20px;
+						}
+						.accord__but-item {
+							color: $purple;
+							font-family: $FuturaNewBold;
+							font-size: 0.9375em; // 15px / 16px
+							padding: 18px 17px 16px;
+						}
+					}
+					.accord__right {
+						display: table-cell;
+						vertical-align: middle;
+						width: 71.4%;
+						.accord__but-item {
+							display: inline-block;
+							vertical-align: middle;
+							font-family: $FuturaNewMedium;
+							font-size: 14px;
+							width: 27.13%;
+							padding: 18px 17px 16px;
+							&:nth-child(2) {
+								width: 29.33%;
+								font-family: $FuturaNewHeavy;
+								font-size: 14px;
+							}
+							&:nth-child(3) {
+								width: 42.2%;
+								font-family: $FuturaNewBook;
+								font-size: 0.9375em; // 15px / 16px
+								@include r(1279) {
+									width: 41.2%;
+								}
+							}
+							.status {
+								display: inline-block;
+								position: relative;
+								&::after {
+									content: '';
+									position: absolute;
+									top: 50%;
+									left: -18px;
+									transform: translateY(-50%);
+								}
+								&.green {
+									color: #23980f;
+									&::after {
+										background-image: url(../img/icons/stock.png);
+										width: 14px;
+										height: 12px;
+									}
+								}
+								&.grey {
+									color: #b0b0b0;
+									&::after {
+										background-image: url(../img/icons/canceled.jpg);
+										width: 13px;
+										height: 13px;
+									}
+								}
+								&.yellow {
+									color: #ffcc00;
+									&::after {
+										background-image: url(../img/icons/expects.jpg);
+										width: 13px;
+										height: 13px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.order__area {
+	.title__form {
+		margin-bottom: 22px;
+	}
+}
 html {
 	&.overlay {
 		body {

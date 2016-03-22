@@ -20547,8 +20547,8 @@ $(document).ready(function () {
 				menu.removeClass('active');
 				list.fadeOut(150);
 				item.text(text);
-				parent.find('.'+data).fadeIn(150).siblings().hide();
-				hint.find('.'+data).fadeIn(150).siblings().hide();
+				parent.find('.' + data).fadeIn(150).siblings().hide();
+				hint.find('.' + data).fadeIn(150).siblings().hide();
 
 
 			});
