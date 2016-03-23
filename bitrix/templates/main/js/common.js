@@ -20665,6 +20665,38 @@ $(document).ready(function () {
 			});
 			myMap.geoObjects.add(Placemark);
 			myMap.behaviors.disable('scrollZoom');
-		};		
+	};
 
+	// accordion
+	function accordion() {
+		$('.accord').each(function() {
+			var _ = $(this),
+					block = _.find('.accord__block');
+			if(_.hasClass('is-active')) {
+				block.show();
+			}
+		});
+		$('.accord__but').on('click', function() {
+			var _ = $(this),
+					parent = _.parents('.accord'),
+					blockThis = parent.find('.accord__block'),
+					accord = $('.accord'),
+					block = accord.find('.accord__block');
+			if (!parent.hasClass('is-active')) {
+				accord.stop(true, true).removeClass('is-active');
+				block.stop(true, true).slideUp(500);
+				parent.stop(true, true).addClass('is-active');
+				blockThis.stop(true, true).slideDown(500);
+			}
+			else {
+				parent.stop(true, true).removeClass('is-active');
+				blockThis.stop(true, true).slideUp(500);
+			};
+			return false;
+		});
+		$('.accord .reset').on('click',function(event) {
+			event.stopPropagation();
+		});
+	};
+	accordion();
 })
