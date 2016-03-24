@@ -2783,7 +2783,7 @@ data {
 		}
 	}
 	@include r(749) {
-		font-size: 75%;
+		font-size: 90%;
 	}
 }
 .mobile-nav {
@@ -4435,16 +4435,19 @@ data {
 		@include clearfix;
 		padding-bottom: 0.45em;
 		.col_right {
-			overflow: hidden;
+			float: right;
 			padding: 1.375em 1.5em; // 22px 24px / 16px
 			margin-right: 0.125em; // 2px / 16px
 			width: 46.5%;
 			margin-top: 0.35em;
 			@include r(1279) {
 				width: 72.5%;
+				float: none;
 			}
 			@include r(1023) {
 				width: auto;
+				float: right;
+				width: 46.5%;
 			}
 			@include r(749) {
 				width: 100%;
@@ -4473,7 +4476,7 @@ data {
 }
 .col_left {
 	float: left;
-	width: 48%;
+	width: 47.9%;
 	padding-left: 0.1875em; // 3px / 16px
 	@include clearfix;
 }

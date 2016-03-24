@@ -1217,6 +1217,7 @@ $(document).ready(function () {
 
 			cButton.on('click', function(){
 				cList.stop(true, true).fadeToggle(duration);
+				$(this).parent().toggleClass('visible');
 			});
 
 			cItem.on('click', function(){
@@ -1225,6 +1226,7 @@ $(document).ready(function () {
 				cButton.text(values);
 				cList.fadeOut(duration);
 				cButton.parents('.c_select').addClass('valid').removeClass('error-valid');
+				cButton.parent().removeClass('visible');
 			});
 
 			if(cItem.find('input:checked').length != 0) {
