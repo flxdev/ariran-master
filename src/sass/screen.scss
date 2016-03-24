@@ -2458,7 +2458,7 @@ data {
 		}
 	}
 	@include r(749) {
-		font-size: 75%;
+		font-size: 104%;
 	}
 }
 .col6 {
@@ -2479,6 +2479,9 @@ data {
 		}
 		@include r(1023) {
 			width: 33.33%!important;
+		}
+		@include r(749) {
+			width: 50%!important;
 		}
 	}
 }
@@ -2503,6 +2506,11 @@ data {
 		margin-right: 2.93333em; // 44px / 15px
 		font-family: $FuturaNewBold;
 		font-size: 0.9375em; // 15px / 16px
+		@include r(749) {
+			font-size: 0.875em;
+			margin-left: 0.7333em;
+			margin-right: 0.7333em;
+		}
 	}
 	.front {
 		opacity: 0;
@@ -2605,6 +2613,9 @@ data {
 		}
 	}
 	@include r(749) {
+		.front, .back {
+			font-size: 100%;
+		}
 		span {
 			margin-bottom: 20px;
 		}
