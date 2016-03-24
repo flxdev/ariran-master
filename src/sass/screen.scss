@@ -6424,6 +6424,9 @@ data {
 			line-height: 1.285em; // 18px / 14px
 			display: inline-block;
 			margin-bottom: 0.7142em; // 10px / 14px
+			@include r(1023) {
+				width: 100%;
+			}
 		}
 		a {
 			font-family: $FuturaNewBold;
@@ -6433,6 +6436,9 @@ data {
 			color: $brown;
 			&:last-child {
 				margin-bottom: 0;
+			}
+			@include r(1023) {
+				display: block;
 			}
 		}
 	}

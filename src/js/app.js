@@ -8,14 +8,14 @@ $(document).ready(function () {
 
 	(function(){
 		var map = $('.map'),
-				top = (map.offset().top - 250)*0.75,
 				btn = $('.btn__scrollTo');
 				
 
 		btn.on('click', function(){
+			var top = (map.offset().top);
 			$('html, body').animate({
 				scrollTop: top
-			}, 3600);
+			}, 1000);
 		});
 	})();
 
