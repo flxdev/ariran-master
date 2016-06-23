@@ -1213,6 +1213,7 @@ $(document).ready(function () {
 
 			$(document).on('click', function(){
 				cList.fadeOut(duration);
+				cButton.parent().removeClass('visible');
 			});
 
 			cButton.on('click', function(){

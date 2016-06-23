@@ -118,17 +118,21 @@ body {
 	width: 100%;
 	@include clearfix;
 	@include r(1365) {
-		max-width: 1280px;
+		max-width: 1240px;
 	}
 	@include r(1280) {
 		max-width: 980px;
 	}
-	@include r(1023) {
+	@include r(989) {
 		max-width: 750px;
 		padding: 0 30px
 	}
 	@include r(749) {
-		max-width: 320px;
+		max-width: 540px;
+		padding: 0 10px; 
+	}
+	@include r(479) {
+		max-width: 480px;
 		padding: 0 10px; 
 	}
 }
@@ -267,7 +271,7 @@ body {
 	top: 0;
 	right: 0;
 	height: 16.0625em; // 257px / 16px
-	@include r(1023) {
+	@include r(989) {
 		height: 20.0625em;
 	}
 	width: 100%;
@@ -278,7 +282,7 @@ body {
 	padding-top: 1.75em; // 28px / 16px
 	margin-bottom: 1.25em;
 	z-index: 4;
-	@include r(1023) {
+	@include r(989) {
 		padding-top: 1.5em;
 		height: 14.625em;
 	}
@@ -298,7 +302,7 @@ body {
 		@include r(1280) {
 			width: 12.923%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
@@ -337,7 +341,7 @@ body {
 		@include r(1280) {
 			width: 27.846%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			display: none;
 		}
 	}
@@ -353,7 +357,7 @@ body {
 			font-family: $FuturaNewMedium;
 			font-size: 1em; //16px /16px
 		}
-		@include r(1023) {
+		@include r(989) {
 			display: none;
 		}
 	}
@@ -416,7 +420,7 @@ body {
 		@include r(1280) {
 			width: 25.538%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			float: right;
 			width: 9.95em;
 			margin-top: 1.3em;
@@ -547,7 +551,7 @@ body {
 		@include r(1280) {
 			width: 16.769%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 2.6em;
 			float: right;
 			margin-bottom: 0.7em;
@@ -584,7 +588,7 @@ body {
 		position: absolute;
 		top: 1.2em;
 		cursor: pointer;
-		@include r(1023) {
+		@include r(989) {
 			display: block;
 			.icon {
 				width: 100%;
@@ -602,7 +606,7 @@ body {
 		margin-top: 6.1em;
 		left: 0;
 		right: 0;
-		@include r(1023) {
+		@include r(989) {
 			display: none;
 		}
 		.menu-wrapper {
@@ -611,7 +615,10 @@ body {
 			.menu__extra {
 				float: right;
 				width: 16.1%;
-				@include r(1279) {
+				@include r(1366) {
+					width: 17.1%;
+				}
+				@include r(1280) {
 					display: none;
 				}
 				.menu__extra-item {
@@ -659,7 +666,10 @@ body {
 				width: 83.9%;
 				position: relative;
 				z-index: 6;
-				@include r(1279) {
+				@include r(1366) {
+					width: 81.9%;
+				}
+				@include r(1280) {
 					width: 100%;
 				}
 				.menu__head-item {
@@ -696,12 +706,12 @@ body {
 							}
 						}
 					}
-					&:nth-of-type(2) {
-						width: 15%;
-						@include r(1279) {
-							width: auto;
-						}
-					}
+					// &:nth-of-type(2) {
+					// 	width: 15%;
+					// 	@include r(1279) {
+					// 		width: auto;
+					// 	}
+					// }
 					&:last-of-type {
 						width: 13%;
 						@include r(1279) {
@@ -771,9 +781,24 @@ body {
 					top: 0;
 					left: 0;
 					display: none;
+					&:nth-of-type(2) {
+						left: 7%;
+					}
+					&:nth-of-type(3) {
+						left: 26.7%;
+					}
+					&:nth-of-type(4) {
+						left: 43.2%;
+					}
+					&:nth-of-type(5) {
+						left: 58%;
+					}
 					&:nth-of-type(6) {
-						right: 0;
+						right: 10%;
 						left: auto;
+						@include r(1279) {
+							right: 0;
+						}
 					}
 					&:nth-of-type(7) {
 						right: 0;
@@ -809,7 +834,7 @@ body {
 		width: 100%;
 		height: 6.3125em; // 101px / 16px
 		text-align: center;
-		@include r(1023) {
+		@include r(989) {
 			display: inline-block;
 		}
 		@include clearfix;
@@ -1067,6 +1092,7 @@ body {
 .out {
 	position: relative;
 	z-index: 3;
+	overflow: hidden;
 }
 .row {
 	@include clearfix;
@@ -1078,7 +1104,7 @@ body {
 		@include r(1279) {
 			font-size: 80%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			margin-top: 1.25em;
 		}
 	}
@@ -1093,7 +1119,7 @@ body {
 	@include r(1280) {
 		font-size: 80%;
 	}
-	@include r(1023) {
+	@include r(989) {
 		//js-display: flex;
 		display: flex;
 		flex-wrap: wrap;
@@ -1154,7 +1180,7 @@ body {
 			}
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		float: none;
 		display: inline-block;
 		order: 2;
@@ -1204,7 +1230,7 @@ body {
 			}
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		float: none;
 		display: inline-block;
 		order: 3;
@@ -1226,7 +1252,7 @@ body {
 			border: 2px solid $white;
 			border-radius: 0.25em; // 5px / 16px
 			overflow: hidden;
-			@include r(1023) {
+			@include r(989) {
 				height: 24.325em;
 			}
 			@include r(749) {
@@ -1292,7 +1318,7 @@ body {
 					background-color: $beige-hover;
 				}
 			}
-			@include r(1023) {
+			@include r(989) {
 				width: 100%;
 				padding: 0 2.2em;
 				.subtitle {
@@ -1335,7 +1361,7 @@ body {
 			font-size: 80%;
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		display: inline-block;
 		order: 1;
 		width: 100%;
@@ -1528,8 +1554,8 @@ data {
 				&::after {
 					background-image: url(../img/svg/sale.svg);
 					background-size: cover;
-					width: 2.13em; // 32px / 15px
-					height: 1.7333em; // 26px / 15px
+					width: 2.13em; // 31px / 15px
+					height: 1.66666em; // 25px / 15px
 					top: 0.3333em; // 5px / 15px
 					left: 0.1333em; // 2px / 15px
 				}
@@ -1540,7 +1566,7 @@ data {
 				max-width: 80%;
 			}
 		}
-		@include r(1023) {
+		@include r(989) {
 			span {
 				max-width: 65%;
 			}
@@ -1569,7 +1595,7 @@ data {
 		.column {
 			width: 50%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			.column {
 				width: 100%;
 				.pop__item {
@@ -1586,7 +1612,7 @@ data {
 		.column {
 			width: 100%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			.column {
 				.pop__item.row1-2 {
 					width: 100%;
@@ -1762,7 +1788,7 @@ data {
 						width: 40%;
 					}
 				}
-				@include r(1023) {
+				@include r(989) {
 					height: 13.938em;
 				}
 			}
@@ -1773,7 +1799,7 @@ data {
 					color: $brown;
 					transform: translate(-50%, 0px);
 				}
-				@include r(1023) {
+				@include r(989) {
 					height: 29.125em;
 				}
 				@include r(749) {
@@ -1814,7 +1840,7 @@ data {
 				width: 30%; // 220px / 1100px
 			}
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 100%;
 			.column {
 				width: 66.66%;
@@ -1830,7 +1856,7 @@ data {
 		.column {
 			width: 100%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 100%;
 			.column {
 				width: 100%;
@@ -1861,12 +1887,12 @@ data {
 			}
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		margin: -2.125em -0.625em -0.625em;
 	}
 }
 .tab__content {
-	// @include r(1023){
+	// @include r(989){
 	// 	.card_item {
 	// 		font-size: 50%;
 	// 	}
@@ -1935,7 +1961,7 @@ data {
 					left: auto;
 				}
 			}
-			// @include r(1023) {
+			// @include r(989) {
 			// 	margin: 0 -0.225em;
 			// }
 			@include r(749) {
@@ -2093,7 +2119,7 @@ data {
 		.btn-detail {
 			opacity: 1;
 			visibility: visible;
-			@include r(1023) {
+			@include r(989) {
 				opacity: 0;
 				visibility: hidden;
 			}
@@ -2109,7 +2135,7 @@ data {
 			line-height: 13em;
 		}
 	}
-	// @include r(1023) {
+	// @include r(989) {
 	// 	max-width: 100%;
 	// 	height: 40em; // 640px / 16px
 	// 	.img__box {
@@ -2198,7 +2224,7 @@ data {
 		color: $grey;
 		@include transition(color);
 	}
-	// @include r(1023) {
+	// @include r(989) {
 	// 	font-size: 1em;
 	// }
 }
@@ -2229,7 +2255,7 @@ data {
 			display: inline-block;
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		padding: 1.4375em 6.0769%;
 	}
 	@include r(749) {
@@ -2385,7 +2411,7 @@ data {
 			}
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		padding: 1.25em 0;
 		.l {
 			display: flex;
@@ -2463,21 +2489,21 @@ data {
 }
 .col6 {
 	.column {
-		width: 17.1%;
+		width: 16.8%;
 		margin-left: -.36em;
 		display: inline-block;
 		vertical-align: top;
 		padding-right: 3%;
-		&:first-child {
-			width: 16.93%;
-		}
-		&:nth-child(5) {
-			width: 16.9%;
-		}
-		&:last-child {
-			width: 15.35%;
-		}
-		@include r(1023) {
+		// &:first-child {
+		// 	width: 16.93%;
+		// }
+		// &:nth-child(5) {
+		// 	width: 16.9%;
+		// }
+		// &:last-child {
+		// 	width: 15.35%;
+		// }
+		@include r(989) {
 			width: 33.33%!important;
 		}
 		@include r(749) {
@@ -2607,7 +2633,7 @@ data {
 			}
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		.front, .back {
 			font-size: 80%;
 		}
@@ -2756,7 +2782,7 @@ data {
 	.footer__center {
 		overflow: hidden;
 	}
-	@include r(1023) {
+	@include r(989) {
 		.l {
 			display: flex;
 			flex-wrap: wrap;
@@ -2883,7 +2909,7 @@ data {
 	margin-bottom: 1.25em; // 20px / 16px
 	overflow: hidden;
 	min-height: 6.625em; // 106px / 16px
-	@include r(1023) {
+	@include r(989) {
 		padding: 0 0 3.1em;
 	}
 	@include r(749) {
@@ -2902,11 +2928,11 @@ data {
 		margin-top: 0.65em;
 		& + .breadcrumbs {
 			padding-top: 0;
-			@include r(1023) {
+			@include r(989) {
 				padding-top: 0.8em;
 			}
 		}
-		@include r(1023) {
+		@include r(989) {
 			margin-top: 0.75em;
 		}
 	}
@@ -2974,7 +3000,7 @@ data {
 			&.slide-1 {
 				right: 470px;
 				top: 21px;
-				@include r(1023) {
+				@include r(989) {
 					right: 270px;
 				}
 			}
@@ -2987,7 +3013,7 @@ data {
 			&.slide-2 {
 				right: -484px;
 				top: -48px;
-				@include r(1023) {
+				@include r(989) {
 					right: -284px;
 				}
 			}
@@ -2997,7 +3023,7 @@ data {
 .container {
 	margin-right: -1.25em; // 20px / 16px
 	@include clearfix;
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 }
@@ -3009,7 +3035,7 @@ data {
 	@include r(1279) {
 		width: 11.5em;
 	}
-	@include r(1023) {
+	@include r(989) {
 		margin-top: 0;
 		width: 100%;
 		margin-bottom: 1.25em;
@@ -3046,7 +3072,7 @@ data {
 		}
 	}
 	.nav {
-		@include r(1023) {
+		@include r(989) {
 			li {
 				display: inline-block;
 				width: 49.5%;
@@ -3067,7 +3093,7 @@ data {
 			&.active {
 				color: $orange;
 			}
-			@include r(1023) {
+			@include r(989) {
 				font-size: 0.8em;
 			}
 		}
@@ -3310,7 +3336,7 @@ data {
 			visibility: hidden;
 			transition: opacity 0.3s linear, visibility 0.3s linear;
 		}
-		@include r(1023) {
+		@include r(989) {
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -3328,7 +3354,7 @@ data {
 			line-height: 3.0909em;
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		margin-bottom: 0;
 		.form {
 			display: none;
@@ -3504,7 +3530,7 @@ data {
 			font-size: 0.875em; // 14px / 16px
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		display: none;
 	}
 }
@@ -3515,7 +3541,7 @@ data {
 	margin-top: -1.25em; // 20px / 16px
 	//min-height: 20em;
 	@include clearfix;
-	@include r(1023) {
+	@include r(989) {
 		overflow: visible;
 		padding: 0;
 		margin-top: 0;
@@ -3538,7 +3564,7 @@ data {
 		// @include r(1279) {
 		// 	font-size: 90%;
 		// }
-		// @include r(1023) {
+		// @include r(989) {
 		// 	font-size: 50%;
 		// }
 		// @include r(749) {
@@ -3581,7 +3607,7 @@ data {
 			}
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		margin: 0 -0.225em;
 	}
 }
@@ -3675,7 +3701,7 @@ data {
 			color: $white;
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
 		margin-bottom: 1.25em;
 	}
 }
@@ -3685,12 +3711,12 @@ data {
 	border-radius: 0.25em; // 4px / 16px
 	@include clearfix;
 	margin-bottom: 1.25em; // 20px / 16px;
-	@include r(1023) {
+	@include r(989) {
 		.mobile_filter {
-			display: none;
+			display: block;
 		}
 		.show__by {
-			display: block;
+			display: none;
 		}
 	}
 }
@@ -3700,7 +3726,7 @@ data {
 }
 .mobile_filter {
 	display: none;
-	@include r(1023) {
+	@include r(989) {
 		display: block;
 	}
 	float: right;
@@ -3858,7 +3884,7 @@ data {
 		vertical-align: middle;
 		min-width: 3.1875em; // 51px / 16px
 	}
-	@include r(1023) {
+	@include r(989) {
 		display: none;
 	}
 }
@@ -3881,21 +3907,34 @@ data {
 			width: 11.375em;
 		}
 	}
-	@include r(1023) {
+	@include r(989) {
+		font-size: 80%;
 		.card_item {
-			width: 31.3%;
+			width: 23.2%;
 		}
 	}
 	@include r(749) {
 		margin: -0.6em;
 		.card_item {
-			width: 45.3%;
+			width: 30.7%;
 			margin: 1.15em 0.95em;
 			padding: 1.3em;
 			.badge {
-				right: 1.5em;
-				top: 2.13em;
+				right: 0.7em;
+				top: 1.13em;
+				font-size: 200%;
 			}
+		}
+	}
+	@include r(540) {
+		.card_item {
+			width: 30.5%;
+		}
+	}
+	@include r(413) {
+		font-size: 100%;
+		.card_item {
+			width: 45.8%;
 		}
 	}
 }
@@ -3923,7 +3962,7 @@ data {
 	height: 3.75em; // 60px / 16px
 	background-color: #fff;
 	margin-top: 1.125em; // 18зч / 16зч
-	@include r(1023) {
+	@include r(989) {
 		display: none;
 	}
 	@include r(749) {
@@ -4264,7 +4303,7 @@ data {
 	position: relative;
 	@include clearfix;
 	margin-bottom: 2em; // 32px / 16px
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 }
@@ -4283,7 +4322,7 @@ data {
 	@include r(1279) {
 		width: 350px;
 	}
-	@include r(1023) {
+	@include r(989) {
 		width: 100%;
 		float: none;
 	}
@@ -4361,7 +4400,7 @@ data {
 	overflow: hidden;
 	padding-left: 4.325em; //66px / 16px
 	padding-right: 0.45em;
-	@include r(1024) {
+	@include r(989) {
 		padding-left: 0;
 	}
 	@include r(750) {
@@ -4444,7 +4483,7 @@ data {
 				width: 72.5%;
 				float: none;
 			}
-			@include r(1023) {
+			@include r(989) {
 				width: auto;
 				float: right;
 				width: 46.5%;
@@ -4460,7 +4499,7 @@ data {
 				float: none;
 				margin-bottom: 1.25em;
 			}
-			@include r(1023) {
+			@include r(989) {
 				float: left;
 				width: 46.5%;
 			}
@@ -4509,7 +4548,7 @@ data {
 				color: $orange;
 			}
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 58%;
 		}
 	}
@@ -4557,7 +4596,7 @@ data {
 	width: 6.4375em; // 103px / 16px
 	height: 1.625em; // 26px / 16px
 	border: 1px solid #dedede;
-	@include r(1023) {
+	@include r(989) {
 		width: 5.4375em;
 	}
 	@include transition(border-color);
@@ -4567,7 +4606,7 @@ data {
 		text-align: center;
 		float: left;
 		position: relative;
-		@include r(1023) {
+		@include r(989) {
 			width: 1.5625em; // 25px / 16px
 		}
 		&::after {
@@ -4589,7 +4628,7 @@ data {
 		text-align: center;
 		float: left;
 		position: relative;
-		@include r(1023) {
+		@include r(989) {
 			width: 1.5625em; // 25px / 16px
 		}
 		&::after {
@@ -4627,7 +4666,7 @@ data {
 		pointer-events: none;
 		font-family: $FuturaNewBook;
 		font-size: 0.9375em; // 15px / 16px
-		@include r(1023) {
+		@include r(989) {
 			width: 2.28em; // 35px / 15px
 		}
 	}
@@ -4682,7 +4721,7 @@ data {
 	&.produsc_cont {
 		width: 91%;
 		margin-bottom: 2.5em;
-		@include r(1023) {
+		@include r(989) {
 			width: 100%;
 		}
 		.tab__nav {
@@ -4741,14 +4780,16 @@ data {
 	transition: border-color 0.3s ease;
 	.icon {
 		position: absolute;
-		width: 3px;
+		width: 5px;
 		height: 5px;
 		top: 50%;
 		left: 10px;
 		//@include sprite($btn-link);
-		background-image: url(../img/icons/btn-link.png);
+		// background-image: url(../img/icons/btn-link.png);
 		background-size: cover;
-		transform: translate(0, -50%);
+		transform: translate(0, -50%) rotate(45deg);
+		border-left: 1px solid $brown;
+		border-bottom: 1px solid $brown;
 	}
 	&:hover {
 		border-color: $orange;
@@ -4760,7 +4801,7 @@ data {
 		position: absolute;
 		left: 2.5625em; // 41px / 16px
 		bottom: 13.6875em; // 219px / 16px
-		@include r(1023) {
+		@include r(989) {
 			bottom: auto;
 			left: auto;
 			position: relative;
@@ -4775,7 +4816,7 @@ data {
 .similar_products {
 	margin-right: 1.25em;
 	margin-bottom: 1.8125em; // 29px / 16px
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 	h2 {
@@ -4895,7 +4936,7 @@ data {
 	&.goods {
 		.popup {
 			max-width: 717px;
-			@include r(1023) {
+			@include r(989) {
 				max-width: 690px;
 			}
 			@include r(749) {
@@ -5178,6 +5219,9 @@ data {
 					color: #838c8d;
 					margin: 2.3571em -3.9428em; // 33px 30px / 14px 
 					text-align: center;
+					@include r(989) {
+						margin: 0;
+					}
 					a {
 						color: $orange;
 						border-bottom: 1px solid;
@@ -5245,6 +5289,25 @@ data {
 			border-color: $error;
 		}
 	}
+	&::before {
+		content: '';
+		width: 6px;
+		height: 6px;
+		border-right: 1px solid $brown;
+		border-bottom: 1px solid $brown;
+		transform-origin: 50%;
+		transform: rotate(45deg);
+		transition: transform 0.3s ease;
+		right: 10px;
+		top: 50%;
+		margin-top: -3px;
+		position: absolute;
+	}
+	&.visible {
+		&::before {
+			transform: rotate(-135deg);
+		}
+	}
 	.c_select-button {
 		display: inline-block;
 		position: relative;
@@ -5296,7 +5359,7 @@ data {
 							height: 0.75em;
 							position: absolute;
 							right: 0.125em;
-							top: 0.375em;
+							top: 0.145em;
 							width: 0.875em;
 							//@include sprite($check);
 							background-image: url(../img/icons/check.png);
@@ -5323,16 +5386,25 @@ data {
 						transition: color 0.3s linear 0s;
 						color: #4f4645;
 						font-size: 0.9375em;
+						padding: 0 15px 0 0;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						width: 100%;
 					}
 				}
 			}
     }
 	}
 }
+p {
+	& > img {
+		max-width: 100%;
+	}
+}
 .order {
 	@include clearfix;
 	margin-right: 1.25em;
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 }
@@ -5341,7 +5413,7 @@ data {
 	float: left;
 	padding: 1.3125em 1.4375em 1.3125em 1.9375em; // 21px 23px 21px 31px / 16px
 	margin-right: 0;
-	@include r(1023) {
+	@include r(989) {
 		float: none;
 		width: 100%;
 	}
@@ -5362,7 +5434,7 @@ data {
 		display: inline-block;
 		width: 100%;
 	}
-	@include r(1023) {
+	@include r(989) {
 		float: none;
 		width: 100%;
 	}
@@ -5398,6 +5470,7 @@ data {
 		width: 1.266em; // 19px / 15px
 		height: 1.266em; // 19px / 15px
 		background-image: url(../img/svg/info.svg);
+		background-size: contain;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -5738,7 +5811,7 @@ data {
 		@include r(1279) {
 			width: 34%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 100%;
 		}
 	}
@@ -5777,7 +5850,7 @@ data {
 				.title {
 					margin-bottom: 0;
 					padding-right: 0;
-					@include r(1023) {
+					@include r(989) {
 						float: left;
 						width: 60%;
 					}
@@ -5787,7 +5860,7 @@ data {
 					}
 				}
 				.item__descr-option {
-					@include r(1023) {
+					@include r(989) {
 						float: left;
 						width: 60%;
 					}
@@ -5820,7 +5893,7 @@ data {
 					}
 				}
 				.descr {
-					@include r(1023) {
+					@include r(989) {
 						float: left;
 						width: 60%;
 					}
@@ -5830,7 +5903,7 @@ data {
 					}
 				}
 				.price__case {
-					@include r(1023) {
+					@include r(989) {
 						width: 40%;
 						overflow: hidden;
 						text-align: right;
@@ -5879,7 +5952,7 @@ data {
 		@include r(1279) {
 			width: 64%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 100%;
 		}
 	}
@@ -5937,7 +6010,7 @@ data {
 	}
 	.form {
 		max-width: 564px;
-		@include r(1023) {
+		@include r(989) {
 			max-width: 100%;
 		}
 		.input {
@@ -6168,6 +6241,7 @@ data {
 				&::after {
 					content: '';
 					background-image: url("../img/svg/info.svg");
+					background-size: contain;
 					height: 1.166em;
 					left: 1em; // 16px / 16px
 					position: absolute;
@@ -6344,7 +6418,7 @@ data {
 }
 .order__result {
 	margin: 0 1.25em 1.25em 0;
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 	@include clearfix;
@@ -6363,7 +6437,7 @@ data {
 			display: inline-block;
 			padding-left: 2.0667em;// 62px / 30px
 			margin: 0 0 0.5em 0; // 33px / 30px
-			@include r(1023) {
+			@include r(989) {
 				font-size: 1.6em;
 			}
 			@include r(749) {
@@ -6438,7 +6512,7 @@ data {
 			line-height: 1.285em; // 18px / 14px
 			display: inline-block;
 			margin-bottom: 0.7142em; // 10px / 14px
-			@include r(1023) {
+			@include r(989) {
 				width: 100%;
 			}
 		}
@@ -6451,7 +6525,7 @@ data {
 			&:last-child {
 				margin-bottom: 0;
 			}
-			@include r(1023) {
+			@include r(989) {
 				display: block;
 			}
 		}
@@ -6460,8 +6534,8 @@ data {
 .personal-room  {
 	background-color: $white;
 	padding: 2.4375em 1.4375em 2.4375em 2.5625em;
-	min-height: 31.25em;
-	@include r(1023) {
+	min-height: 33.65em;
+	@include r(989) {
 		padding: 2em;
 		min-height: auto;
 	}
@@ -6478,7 +6552,7 @@ data {
 		max-width: 565px;
 		display: inline-block;
 		width: 100%;
-		@include r(1023) {
+		@include r(989) {
 			max-width: 100%;
 		}
 		@include r(749) {
@@ -6549,7 +6623,7 @@ data {
 			max-width: 100%;
 		}
 	}
-	@include r(1279) {
+	@include r(1280) {
 		position: relative;
 		left: auto;
 		top: auto;
@@ -6574,7 +6648,7 @@ data {
 	padding: 2.6775em 3.2375em 2.4375em 2.9625em;
 	margin-bottom: 1.25em;
 	@include r(749) {
-		padding: 0.65625em 0.71875em 0.65625em 0.96875em;
+		padding: 0.65625em 0.71875em 0.65625em;
 	}
 	.title {
 		font-family: $FuturaNewBold;
@@ -7011,7 +7085,7 @@ blockquote {
 	.contacts-left {
 		float: left;
 		width: 45%;
-		@include r(1023) {
+		@include r(989) {
 			float: none;
 			width: 100%;
 		}
@@ -7020,7 +7094,7 @@ blockquote {
 		float: right;
 		width: 52%;
 		margin-top: 11px;
-		@include r(1023) {
+		@include r(989) {
 			float: none;
 			width: 100%;
 			margin-top: 25px;
@@ -7065,7 +7139,7 @@ blockquote {
 		@include r(1279) {
 			width: 90%;
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 49%;			
 		}
 		@include r(749) {
@@ -7158,7 +7232,7 @@ blockquote {
 }
 .search__container {
 	margin-right: 1.25em;
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 	.result__text {
@@ -7184,7 +7258,7 @@ blockquote {
 		@include r(1366) {
 			margin: -0.5828em -0.3528em 1.25em;
 		}
-		@include r(1023) {
+		@include r(989) {
 			margin: -0.35em -0.35em 1.25em -0.35em;
 		}
 		@include r(749) {
@@ -7203,7 +7277,7 @@ blockquote {
 					right: 0.6em;
 				}
 			}
-			@include r(1023) {
+			@include r(989) {
 				margin: 0.35em;
 				width: 31.3%;
 				max-width: 31.3%;
@@ -7315,7 +7389,7 @@ blockquote {
 		@include r(1279) {
 			width: 11.2em; // 176px / 16px
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 9.85em; // 176px / 16px
 			height: 9.85em;
 		}
@@ -7343,7 +7417,7 @@ blockquote {
 	margin: 0 1.25em 1.25em 0;
 	@extend .b-radius;
 	text-align: center;
-	@include r(1023) {
+	@include r(989) {
 		margin-right: 0;
 	}
 	@include r(749) {
@@ -7397,7 +7471,7 @@ blockquote {
 }
 .accordion__container {
 	max-width: 930px;
-	@include r(1023) {
+	@include r(989) {
 		font-size: 85%;
 	}
 	@include r(749) {
@@ -7419,7 +7493,7 @@ blockquote {
 				@include r(1279) {
 					padding: 0 0 0 1.875em; // 30px / 16px
 				}
-				@include r(1023) {
+				@include r(989) {
 					padding: 0 0 0 1.25em; // 20px / 16px
 				}
 			}
@@ -7528,7 +7602,7 @@ blockquote {
 						@include r(1279) {
 							padding: 0 0 0 1.875em; // 30px / 16
 						}
-						@include r(1023) {
+						@include r(989) {
 							padding: 0 0 0 1.25em; // 20px / 16px
 						}
 						@include r(749) {
@@ -7599,7 +7673,7 @@ blockquote {
 								right: 3%;
 								top: 56%;
 								transform: translateY(-50%);
-								@include r(1023) {
+								@include r(989) {
 									right: 1%;
 								}
 								@include r(749) {
@@ -7795,11 +7869,11 @@ blockquote {
 		float: left;
 		&:last-child {
 			width: 44.5%;
-			@include r(1023) {
+			@include r(989) {
 				width: 100%;
 			}
 		}
-		@include r(1023) {
+		@include r(989) {
 			width: 100%;
 		}
 	}
@@ -7838,6 +7912,9 @@ html {
 }
 body {
 	@include r(749) {
+		font-size: 90%;
+	}
+	@include r(479) {
 		font-size: 75%;
 	}
 }
