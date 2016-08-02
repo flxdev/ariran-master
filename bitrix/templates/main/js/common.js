@@ -19885,11 +19885,11 @@ $(document).ready(function () {
                     .find('input:checked').click();
             }
         });
-        reset.on('click', function(){
-        	_.attr('previousvalue', 'false');
-        	_.prop('checked', false);
-        	parent.removeClass('active');
-        });
+		reset.on('click', function(){
+			_.attr('previousvalue', 'false');
+			_.prop('checked', false);
+			parent.removeClass('active');
+		});
     });
 
 		f_popup.on('click', function(event){
@@ -20702,4 +20702,19 @@ $(document).ready(function () {
 		});
 	};
 	accordion();
+
+
+	function subscribe() {
+		var subscr = $('.form-subscribe'),
+			reset = subscr.find('.btn-subsc_reset')
+			input = subscr.find('.filter__btns input');
+		reset.on('click', function(){
+			input.each(function(){
+				_ = $(this);
+				_.attr('previousvalue', 'false');
+				_.removeAttr('checked');
+			})
+				
+		});
+	}; subscribe();
 })

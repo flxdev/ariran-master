@@ -3107,7 +3107,7 @@ data {
 		.bx_filter_parameters_box {
 			position: absolute;
 			left: 115%;
-			z-index: 5;
+			z-index: 55;
 			background-color: $orange;
 			border-radius: 4px;
 			display: inline-block;
@@ -5576,7 +5576,7 @@ p {
 			color: $brown;
 		}
 		.btn_reset {
-			top: 17%;
+			top: 12.5%;
 			right: 0;
 			transform: translateX(-50%);
 			@include r(1279) {
@@ -6371,6 +6371,7 @@ p {
 		width: 100%;
 		user-select: none;
 		cursor: pointer;
+		min-width: 1.2667em;
 		span {
 			font-family: $FuturaNewBook;
 			font-size: 0.9375em; // 15px / 16px
@@ -6573,6 +6574,7 @@ p {
 				float: right;
 			}
 		}
+
 	}
 	.reedit {
 		float: right;
@@ -6591,6 +6593,52 @@ p {
 			float: none;
 			margin-bottom: 0.8125em; // 13px / 16px
 			text-align: right;
+		}
+	}
+	.filter__btns {
+		label {
+			width: 30%;
+		}
+		input {
+			&:checked {
+				& + span {
+					border-color: transparent;
+					background-color: transparent;
+					color: #4f4645;
+					&::after {
+						background-color: #ff5024;
+					}
+				}
+			}
+		}
+		span {
+			border: 0;
+			padding-left: 2em;
+			position: relative;
+			background-color: transparent;
+			color: #4f4645;
+			&::before {
+				width: 19px;
+				height: 19px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				border: 1px solid #838c8d;
+				border-radius: 100%;
+				content: '';
+			}
+			&::after {
+				content: '';
+				width: 11px;
+				height: 11px;
+				position: absolute;
+				background-color: transparent;
+				position: absolute;
+				left: 4px;
+				top: 4px;
+				border-radius: 100%;
+				transition: background-color 0.3s ease;
+			}
 		}
 	}
 }
@@ -6618,10 +6666,18 @@ p {
 		&::after {
 			content: '';
 			width: 1.3em;
+			background-repeat: no-repeat;
 		}
 		@include r(1279) {
 			max-width: 100%;
 		}
+	}
+	&.info-top {
+		max-width: 300px;
+	}
+	&.info-bottom {
+		max-width: 300px;
+		top: 5em;
 	}
 	@include r(1280) {
 		position: relative;
@@ -6630,6 +6686,13 @@ p {
 		margin-left: 0;
 		max-width: 100%;
 		margin-bottom: 15px;
+		&.info-top {
+			max-width: 100%;
+		}
+		&.info-bottom {
+			max-width: 100%;
+			top: auto;
+		}
 	}
 }
 .no__goods {
@@ -7903,6 +7966,7 @@ blockquote {
 		}
 	}
 }
+
 html {
 	&.overlay {
 		body {
