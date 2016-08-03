@@ -6567,6 +6567,9 @@ p {
 		font-size: 0.875em;
 		color: #12ac27;
 		margin-bottom: 1.92em;
+		&.error {
+			color: #f2321e;
+		}
 	}
 	@include r(989) {
 		padding: 2em;
