@@ -253,6 +253,12 @@ body {
 			background-color: $orange-hover;
 		}
 	}
+	&.btn_gold {
+		background-color: #ebbf79;
+		&:hover {
+			background-color: #eab258;
+		}
+	}
 }
 #indexpage {
 	.header__bg {
@@ -783,18 +789,30 @@ body {
 					display: none;
 					&:nth-of-type(2) {
 						left: 7%;
+						@include r(1280) {
+							left: 8%;
+						}
 					}
 					&:nth-of-type(3) {
-						left: 26.7%;
+						left: 16.7%;
+						@include r(1280) {
+							left: 19.7%;
+						}
 					}
 					&:nth-of-type(4) {
-						left: 43.2%;
+						left: 28.5%;
+						@include r(1280) {
+							left: 33.5%;
+						}
 					}
 					&:nth-of-type(5) {
-						left: 58%;
+						left: 44%;
+						@include r(1280) {
+							left: 53%;
+						}
 					}
 					&:nth-of-type(6) {
-						right: 10%;
+						right: 7%;
 						left: auto;
 						@include r(1279) {
 							right: 0;
@@ -6107,6 +6125,14 @@ p {
 			}
 			.label__body {
 				width: 65.2%;
+				p {
+					font-family: $PTSansItalic;
+					color: #838c8d;
+					font-size: 0.875em;
+					line-height: 0.875em;
+					letter-spacing: normal;
+					margin-top: 10px;
+				}
 				@include r(749) {
 					width: 100%;
 				}
@@ -6536,6 +6562,12 @@ p {
 	background-color: $white;
 	padding: 2.4375em 1.4375em 2.4375em 2.5625em;
 	min-height: 33.65em;
+	.title__descr {
+		font-family: $PTSans;
+		font-size: 0.875em;
+		color: #12ac27;
+		margin-bottom: 1.92em;
+	}
 	@include r(989) {
 		padding: 2em;
 		min-height: auto;
@@ -6547,12 +6579,16 @@ p {
 	.title__form {
 		letter-spacing: 0.5px;
 		padding-right: 1em;
+		margin-bottom: 0.9em;
 	}
 	.form {
 		margin: 3px 0 0 3px;
 		max-width: 565px;
 		display: inline-block;
 		width: 100%;
+		&:not(:last-of-type) {
+			margin-bottom: 50px;
+		}
 		@include r(989) {
 			max-width: 100%;
 		}
@@ -6663,6 +6699,13 @@ p {
 	&.info {
 		padding-left: 2em;
 		max-width: 235px;
+		a {
+			color: $purple;
+			transition: color 0.3s ease;
+			&:hover {
+				color: $orange-hover;
+			}
+		}
 		&::after {
 			content: '';
 			width: 1.3em;
